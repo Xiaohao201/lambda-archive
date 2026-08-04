@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Half-Life 2 Citizens — What Female 01 Is, and What They Say</title>
+  <meta name="description" content="Female 01 explained: how Half-Life 2's citizen voice sets and models work, who voices them, and the City 17 lines that do the game's political world-building.">
+  <link rel="canonical" href="https://lambdaarchive.com/voices/citizens/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Half-Life 2 Citizens — What Female 01 Is, and What They Say">
+  <meta property="og:description" content="How the citizen voice sets work, and the lines that build City 17.">
+  <meta property="og:url" content="https://lambdaarchive.com/voices/citizens/">
+  <meta property="og:site_name" content="Lambda Archive">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://lambdaarchive.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="theme-color" content="#101216">
+  <link rel="stylesheet" href="/css/base.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Half-Life 2 Citizens — What Female 01 Is, and What They Say",
+    "description": "How Half-Life 2's citizen voice sets and models work, and the lines that build City 17.",
+    "author": { "@type": "Organization", "name": "Lambda Archive" },
+    "publisher": { "@type": "Organization", "name": "Lambda Archive" },
+    "mainEntityOfPage": "https://lambdaarchive.com/voices/citizens/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lambdaarchive.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Voice Lines", "item": "https://lambdaarchive.com/voices/" },
+      { "@type": "ListItem", "position": 3, "name": "Citizens" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Female 01 in Half-Life 2?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Female 01 is one of the citizen voice sets in Half-Life 2. Citizen NPCs are assembled from a pool of models and voice sets — nine male models and six female — so female_01 refers to a specific recorded voice and its associated model variant rather than a named character." }
+      },
+      {
+        "@type": "Question",
+        "name": "Who voices the citizens in Half-Life 2?",
+        "acceptedAnswer": { "@type": "Answer", "text": "John Patrick Lowrie voices the male citizens and Mary Kae Irvin voices the female citizens. Two performers cover the entire population of City 17." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Female 01 a named character?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. It is an asset name, not a character. Citizens are deliberately anonymous — the game gives its population voices and faces but not identities, which is central to how City 17 is written." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the most famous Half-Life 2 citizen line?",
+        "acceptedAnswer": { "@type": "Answer", "text": "\"Don't drink the water. They put something in it to make you forget.\" It is spoken by an ambient NPC in the first few minutes, is never referenced again, and is never confirmed or denied by the game." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap-wide">
+      <a class="brand" href="/"><span class="mark">&#955;</span> Lambda Archive</a>
+      <nav class="site-nav">
+        <a href="/mods/">Mods</a>
+        <a href="/voices/" aria-current="page">Voice Lines</a>
+        <a href="/platforms/">Play Anywhere</a>
+        <a href="/characters/">Characters</a>
+        <a href="/about/">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <p class="crumbs"><a href="/">Home</a><span>&rsaquo;</span><a href="/voices/">Voice Lines</a><span>&rsaquo;</span>Citizens</p>
+
+      <article class="article">
+        <h1>Half-Life 2 citizens — what "Female 01" is, and what they say</h1>
+        <p class="article-meta"><span>Voice archive</span><span>Half-Life 2</span><span>Updated 2026</span></p>
+
+        <div class="article-body">
+          <p><strong>Female 01 is not a character.</strong> It's an asset name — one of the citizen
+            voice sets Half-Life 2 draws from when it populates City 17. If you arrived here looking
+            for who she is, that's the answer, and the more interesting answer is why the game is built
+            that way.</p>
+
+          <div class="toc">
+            <p>On this page</p>
+            <ol>
+              <li><a href="#system">How the citizen system works</a></li>
+              <li><a href="#voices">Two people, one city</a></li>
+              <li><a href="#lines">The lines, by situation</a></li>
+              <li><a href="#three">Three lines worth stopping on</a></li>
+              <li><a href="#files">Finding the files yourself</a></li>
+            </ol>
+          </div>
+
+          <h2 id="system">How the citizen system works</h2>
+          <p>Citizens aren't authored individually. The game has a pool of models and a pool of voice
+            sets, and NPCs get assembled from them — <strong>nine male models and six female</strong>,
+            in varying states of dress and wear.</p>
+          <p><code>female_01</code> is one entry in that pool. It has recorded audio, a matching model
+            variant, and no name, no biography and no arc.</p>
+          <div class="note">
+            <p><strong>That anonymity is the design.</strong> City 17's population is meant to read as
+              a population — interchangeable, processed, relocated. Giving each citizen an identity
+              would undercut the entire premise. The people who <em>do</em> get names — Alyx, Eli,
+              Barney, Grigori — stand out precisely because nobody else does.</p>
+          </div>
+
+          <h2 id="voices">Two people, one city</h2>
+          <p><strong>John Patrick Lowrie voices the male citizens. Mary Kae Irvin voices the female
+            citizens.</strong> That's it. Two performers are the entire population of City 17.</p>
+          <p>This is the same trick the series pulls everywhere once you notice it:</p>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>Group</th><th>How the illusion is built</th></tr></thead>
+              <tbody>
+                <tr><td><a href="/voices/scientists/">Black Mesa scientists</a></td><td>A handful of interchangeable models and performers become an entire research facility</td></tr>
+                <tr><td><a href="/voices/metropolice/">Metropolice</a></td><td>Heavy radio filtering flattens individual voices into one police force</td></tr>
+                <tr><td>City 17 citizens</td><td>Two actors, a model pool, and random assembly become a city</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>In each case a severe technical constraint produced exactly the right dramatic effect. The
+            scientists feel like staff, the police feel like a machine, and the citizens feel like a
+            population — none of which a bigger voice cast would have delivered better.</p>
+
+          <div class="ad-slot">AD SLOT · ARTICLE 01</div>
+
+          <h2 id="lines">The lines, by situation</h2>
+          <p>Drawn from the City 17 chapters, where the citizen dialogue is doing the heaviest lifting.</p>
+
+          <h3>On the train, before anything happens</h3>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>Line</th><th>What it's doing</th></tr></thead>
+              <tbody>
+                <tr><td>"I didn't see you get on."</td><td>Not small talk — see below</td></tr>
+                <tr><td>"No matter how many times I've been relocated, I never get used to it."</td><td>Relocation is routine. This has happened to him repeatedly.</td></tr>
+                <tr><td>"This is my third transfer this year."</td><td>Establishes the frequency without a single line of exposition</td></tr>
+                <tr><td>"Well, end of the line."</td><td>Said about a train. Not only about a train.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>In the station</h3>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>Line</th><th>What it's doing</th></tr></thead>
+              <tbody>
+                <tr><td>"Don't drink the water. They put something in it to make you forget."</td><td>The most quoted line in the game. Never confirmed, never denied.</td></tr>
+                <tr><td>"But this stuff, it's all I have left..."</td><td>Said about confiscated luggage</td></tr>
+                <tr><td>"I see they took your suitcase too! They can't get away with this much longer."</td><td>Defiance that the rest of the game quietly contradicts</td></tr>
+                <tr><td>"I'm working up the nerve to go on."</td><td>An NPC too frightened to walk forward</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>About the Combine</h3>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>Line</th><th>What it's doing</th></tr></thead>
+              <tbody>
+                <tr><td>"Overwatch stopped our train in the woods and took my husband for questioning."</td><td>Delivered flatly. He isn't coming back and she knows it.</td></tr>
+                <tr><td>"Were you the only ones on that train?"</td><td>Checking whether people went missing en route</td></tr>
+                <tr><td>"Dr. Breen again? I was hoping I'd seen the last of him in City 14."</td><td>There are at least fourteen of these cities</td></tr>
+                <tr><td>"I wouldn't say that too loud. This is his base of operations."</td><td>Everyone is being overheard, always</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>During a raid</h3>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>Line</th><th>What it's doing</th></tr></thead>
+              <tbody>
+                <tr><td>"This is how it always starts. First a building, then the whole block."</td><td>He has watched this happen before</td></tr>
+                <tr><td>"They have no reason to come to our place."</td><td>The hope</td></tr>
+                <tr><td>"Don't worry, they'll find one."</td><td>The answer</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Helping you</h3>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>Line</th><th>What it's doing</th></tr></thead>
+              <tbody>
+                <tr><td>"Psst! Hey you! In here!"</td><td>A stranger risking everything for you</td></tr>
+                <tr><td>"Get in here, quick!"</td><td>Doors open for you that don't open for others</td></tr>
+                <tr><td>"Head for the roof! There's no time to lose!"</td><td>Actual navigation, disguised as panic</td></tr>
+                <tr><td>"Civil Protection!" / "Here they come!" / "Run for your life!"</td><td>Threat callouts</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="ad-slot">AD SLOT · ARTICLE 02</div>
+
+          <h2 id="three">Three lines worth stopping on</h2>
+
+          <blockquote style="border-left:3px solid var(--brand);margin:0 0 1em;padding:4px 0 4px 18px;color:var(--ink);font-size:1.06rem">
+            "I didn't see you get on."
+          </blockquote>
+          <p>Spoken on the train in the opening minutes, before you have a weapon or a clue. It reads as
+            idle chatter. It isn't.</p>
+          <p>He didn't see you get on <strong>because you didn't</strong>. Gordon was placed there,
+            moments earlier, by <a href="/characters/g-man/">the G-Man</a>. The game's first spoken line
+            about the protagonist is a stranger noticing that the physics don't add up — and it's
+            delivered by an anonymous NPC who never appears again.</p>
+
+          <blockquote style="border-left:3px solid var(--brand);margin:0 0 1em;padding:4px 0 4px 18px;color:var(--ink);font-size:1.06rem">
+            "Don't drink the water. They put something in it to make you forget."
+          </blockquote>
+          <p>The most quoted line in the game, and the reason it works is that <strong>the game never
+            returns to it.</strong> No document confirms it, no character repeats it, nothing in the
+            plot depends on it.</p>
+          <p>So you're left with a stranger's claim you can't verify, in a city where verifying anything
+            is impossible. That's a far more effective piece of world-building than a confirmed plot
+            point would have been — and it's why people still argue about whether it's true.</p>
+
+          <blockquote style="border-left:3px solid var(--brand);margin:0 0 1em;padding:4px 0 4px 18px;color:var(--ink);font-size:1.06rem">
+            "They have no reason to come to our place."<br>
+            "Don't worry, they'll find one."
+          </blockquote>
+          <p>Two ambient lines, one exchange, thirteen words. It contains the entire logic of life under
+            occupation: innocence is not protection, because the authority decides what counts as a
+            reason.</p>
+          <p>Nobody is required to hear this. It plays in a room you might walk straight through.
+            Half-Life 2 put its best writing in places where it could be missed, and trusted that the
+            people who stopped to listen would be paid for it.</p>
+
+          <h2 id="files">Finding the files yourself</h2>
+          <p>Citizen audio lives under the games' <code>sound/vo/</code> hierarchy, organised into
+            folders per voice set — <code>female01</code>, <code>male01</code> and so on — with the
+            episodes keeping their own directories alongside the base game's.</p>
+          <div class="note warn">
+            <p><strong>We don't host the audio.</strong> These are Valve's copyrighted recordings.
+              They're already in your installation if you own the games, and Valve's own tools are the
+              intended way to browse them. This page publishes transcripts and context only.</p>
+          </div>
+          <p>If you're spawning citizens for testing or in a sandbox, <code>npc_citizen</code> is the
+            entity, and its flags control which model and voice set gets used.</p>
+
+          <h2>Frequently asked</h2>
+          <div class="faq">
+            <details>
+              <summary>Is Female 01 the same as Alyx?</summary>
+              <p>No. Alyx Vance is a fully authored character with her own model, her own performer and
+                her own dialogue. Female 01 is a generic citizen voice set.</p>
+            </details>
+            <details>
+              <summary>How many citizen models are there?</summary>
+              <p>Nine male and six female, with variations in clothing and condition — enough
+                combinations that a crowd doesn't look copy-pasted at a glance.</p>
+            </details>
+            <details>
+              <summary>Can citizens follow you?</summary>
+              <p>Yes — in the later chapters you can recruit and lead squads of them, which changes
+                their voice lines to squad acknowledgements and combat callouts.</p>
+            </details>
+            <details>
+              <summary>Is this every citizen line?</summary>
+              <p>No. Citizen dialogue is enormous and varies by chapter; this covers the City 17
+                material where the writing is densest. The games' own files are the complete reference.</p>
+            </details>
+          </div>
+
+          <hr>
+          <p style="font-size:0.86rem;color:var(--ink-faint)">Line wording and voice credits
+            cross-checked against the
+            <a href="https://combineoverwiki.net/wiki/Citizen/Quotes" rel="nofollow noopener" target="_blank">Combine OverWiki citizen quote archive</a>
+            and <a href="https://combineoverwiki.net/wiki/List_of_Citizen_models" rel="nofollow noopener" target="_blank">citizen model list</a>.
+            Dialogue is quoted for reference and commentary; all audio remains the property of Valve
+            Corporation. <a href="/contact/">Corrections welcome</a>.</p>
+        </div>
+
+        <section class="related">
+          <h2>Related pages</h2>
+          <ul>
+            <li><a href="/voices/metropolice/">Metropolice voice lines
+              <span class="kicker">The people doing this to them — and real police radio codes.</span></a></li>
+            <li><a href="/voices/scientists/">Black Mesa scientist quotes
+              <span class="kicker">The same trick, one game earlier.</span></a></li>
+            <li><a href="/characters/g-man/">The G-Man — what we actually know
+              <span class="kicker">Why nobody saw Gordon get on that train.</span></a></li>
+          </ul>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-links">
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+      <p class="disclaimer">Lambda Archive is an independent fan project. It is not affiliated with,
+        endorsed by, or sponsored by Valve Corporation. Half-Life, the lambda logo, and all related
+        marks are trademarks of Valve Corporation. Dialogue is quoted for reference and commentary;
+        no audio files are hosted or distributed here.</p>
+    </div>
+  </footer>
+</body>
+</html>
