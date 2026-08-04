@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Install Any GoldSrc Mod Correctly — Half-Life 1 Mod Setup</title>
+  <meta name="description" content="The folder rules, liblist.gam, and the two ways a Half-Life 1 mod gets launched. Learn the structure once and every GoldSrc mod installs the same way.">
+  <link rel="canonical" href="https://lambdaarchive.com/mods/install-goldsrc-mods/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How to Install Any GoldSrc Mod Correctly">
+  <meta property="og:description" content="Learn the folder structure once and every Half-Life 1 mod installs the same way.">
+  <meta property="og:url" content="https://lambdaarchive.com/mods/install-goldsrc-mods/">
+  <meta property="og:site_name" content="Lambda Archive">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://lambdaarchive.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="theme-color" content="#101216">
+  <link rel="stylesheet" href="/css/base.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to install a GoldSrc mod for Half-Life",
+    "description": "Install any Half-Life 1 mod using the standard GoldSrc folder structure.",
+    "step": [
+      { "@type": "HowToStep", "name": "Find the Half-Life directory", "text": "Locate the folder containing hl.exe and the valve subfolder, normally under Steam\\steamapps\\common\\Half-Life." },
+      { "@type": "HowToStep", "name": "Extract the mod into its own folder", "text": "Create or extract a single folder for the mod directly inside the Half-Life directory, alongside valve." },
+      { "@type": "HowToStep", "name": "Verify liblist.gam is at the top level", "text": "Confirm liblist.gam sits directly inside the mod folder and not inside a nested subfolder." },
+      { "@type": "HowToStep", "name": "Launch the mod", "text": "Restart Steam so the mod appears in the library, or add -game followed by the folder name to Half-Life's launch options." }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lambdaarchive.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Mods", "item": "https://lambdaarchive.com/mods/" },
+      { "@type": "ListItem", "position": 3, "name": "Installing GoldSrc mods" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Where do Half-Life 1 mods get installed?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Into their own folder placed directly inside the Half-Life directory, alongside the valve folder and hl.exe. This is different from Half-Life 2 mods, which go into the sourcemods folder inside your Steam directory." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is liblist.gam?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It is a GoldSrc mod's manifest file. It tells the engine the mod's display name, which game libraries to load, and how the mod should be presented. Its position is the reliable test of a correct install: it must sit directly inside the mod folder, not in a subfolder." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why doesn't my mod appear in the Steam library?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Steam only scans for installed GoldSrc mods when the client starts, so a mod copied in while Steam is running will not appear until you fully quit and restart it. Some mods are also not designed for library detection at all and are launched with the -game parameter instead." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can installing a mod break my Half-Life installation?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A correctly installed mod lives in its own folder and never writes into the valve folder, so the base game is unaffected. Extracting mod files directly into valve is the one action that does cause damage, and verifying the game's files repairs it." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap-wide">
+      <a class="brand" href="/"><span class="mark">&#955;</span> Lambda Archive</a>
+      <nav class="site-nav">
+        <a href="/mods/" aria-current="page">Mods</a>
+        <a href="/voices/">Voice Lines</a>
+        <a href="/platforms/">Play Anywhere</a>
+        <a href="/characters/">Characters</a>
+        <a href="/about/">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <p class="crumbs"><a href="/">Home</a><span>&rsaquo;</span><a href="/mods/">Mods</a><span>&rsaquo;</span>Installing GoldSrc mods</p>
+
+      <article class="article">
+        <h1>How to install any GoldSrc mod correctly</h1>
+        <p class="article-meta"><span>Reference</span><span>Half-Life 1 / GoldSrc</span><span>Updated 2026</span></p>
+
+        <div class="article-body">
+          <p>Half-Life 1 mods have used the same structure since 1998. Learn it once and every GoldSrc
+            mod you ever install works the same way — and when one doesn't, you'll know which of four
+            things to check instead of reinstalling at random.</p>
+
+          <div class="note">
+            <p><strong>The whole rule in one line:</strong> one folder, directly inside the Half-Life
+              directory, with <code>liblist.gam</code> at its top level.</p>
+          </div>
+
+          <div class="toc">
+            <p>On this page</p>
+            <ol>
+              <li><a href="#where">Where mods go</a></li>
+              <li><a href="#structure">The folder structure</a></li>
+              <li><a href="#liblist">What liblist.gam does</a></li>
+              <li><a href="#launch">The two ways mods launch</a></li>
+              <li><a href="#engine">The engine version problem</a></li>
+              <li><a href="#remove">Removing a mod</a></li>
+            </ol>
+          </div>
+
+          <h2 id="where">Where mods go</h2>
+          <p>A GoldSrc mod goes inside the Half-Life installation directory — the folder that contains
+            <code>hl.exe</code> and the <code>valve</code> subfolder. Normally:</p>
+          <pre><code>Steam\steamapps\common\Half-Life\</code></pre>
+          <p>Not in <code>valve</code>. Not in <code>sourcemods</code>. <em>Beside</em>
+            <code>valve</code>.</p>
+          <div class="note warn">
+            <p><strong>The <code>sourcemods</code> folder is for Half-Life 2.</strong> It belongs to
+              the Source engine and a GoldSrc mod placed there will never be detected. This mix-up is
+              behind a large share of "the mod didn't install" reports — see our
+              <a href="/mods/">side-by-side comparison of the two layouts</a>.</p>
+          </div>
+
+          <h2 id="structure">The folder structure</h2>
+          <p>A correct install looks like this:</p>
+          <pre><code>Steam\steamapps\common\Half-Life\
+    hl.exe
+    valve\              &lt;- the base game, don't touch
+    modname\            &lt;- the mod, one folder
+        liblist.gam     &lt;- must be here, at the top level
+        maps\
+        models\
+        sound\
+        sprites\
+        dlls\           &lt;- server code, if the mod has any
+        cl_dlls\        &lt;- client code, if the mod has any</code></pre>
+          <p>Not every mod has all of these. A campaign mod might ship only <code>maps</code> and
+            <code>liblist.gam</code>; a gameplay overhaul will have <code>dlls</code> and
+            <code>cl_dlls</code> as well. That difference decides whether it can coexist with other
+            mods — <a href="/mods/brutal-half-life-mmod/">a mod with <code>dlls</code> cannot combine
+            with another one</a>.</p>
+
+          <div class="ad-slot">AD SLOT · ARTICLE 01</div>
+
+          <h3>The nesting mistake</h3>
+          <p>This is the single most common install error, and it looks completely fine at a glance.</p>
+          <p>Extracting an archive with "extract to folder name" often produces a wrapper folder:</p>
+          <pre><code>Half-Life\modname\modname\liblist.gam     <- broken
+Half-Life\modname\liblist.gam            <- correct</code></pre>
+          <p>The engine looks inside <code>modname</code>, finds another folder instead of the files it
+            expects, and gives up. Nothing errors, nothing logs — the mod simply never appears.</p>
+          <p><strong>The test:</strong> open the mod folder. If you see <code>liblist.gam</code>, you're
+            done. If you see a single folder with the same name, move its contents up one level and
+            delete the empty wrapper.</p>
+
+          <h2 id="liblist">What liblist.gam does</h2>
+          <p>It's the mod's manifest — a plain text file the engine reads to learn what it's loading.
+            It defines the mod's display name, which libraries to load, and how it presents itself.</p>
+          <p>You rarely need to edit it, but knowing it exists is useful for two reasons:</p>
+          <ul>
+            <li><strong>It's the reliable install test.</strong> Its position tells you instantly
+              whether the folder depth is right.</li>
+            <li><strong>It tells you the mod's type.</strong> Open it in a text editor: if it names
+              game libraries, the mod ships code and won't combine with other gameplay mods.</li>
+          </ul>
+
+          <h2 id="launch">The two ways mods launch</h2>
+          <p>This trips people up because <strong>mods don't all launch the same way</strong>, and the
+            guides rarely say which kind you're dealing with.</p>
+          <div class="fix">
+            <h3><span class="n">A</span> Steam library detection</h3>
+            <p>Steam scans for installed GoldSrc mods <strong>when the client starts</strong>, and lists
+              what it finds as separate library entries.</p>
+            <p>Because the scan only happens at startup, a mod copied in while Steam is running will not
+              appear. Fully quit Steam — exit from the system tray icon, not just close the window —
+              then start it again.</p>
+          </div>
+          <div class="fix">
+            <h3><span class="n">B</span> The <code>-game</code> launch parameter</h3>
+            <p>Some mods aren't designed for library detection at all and are launched by telling
+              Half-Life to start them. In Half-Life's Properties &rsaquo; General &rsaquo; Launch
+              Options:</p>
+            <pre><code>-game modname</code></pre>
+            <p>The name must match the folder exactly. Launch Half-Life and it boots into the mod.</p>
+            <div class="note warn">
+              <p><strong>Clear this line when you're done.</strong> While it's there, Half-Life always
+                starts the mod — which people then report as "I can't play the normal game any more."</p>
+            </div>
+          </div>
+          <p>If a mod's own instructions specify <code>-game</code>, use that. An empty Steam library is
+            expected behaviour for those mods, not a failed install.</p>
+
+          <div class="ad-slot">AD SLOT · ARTICLE 02</div>
+
+          <h2 id="engine">The engine version problem</h2>
+          <p>One thing has changed about GoldSrc modding in twenty-five years, and it's recent.</p>
+          <p>The 25th Anniversary update rebuilt significant parts of the engine, and a large share of
+            mods built against the older one stopped working. If a mod is installed correctly and still
+            won't run, this is the likely reason.</p>
+          <p>Two fixes, in order:</p>
+          <ol>
+            <li><strong>Look for a compatibility patch.</strong> Many maintained mods released one.
+              Better than the alternative, because your install stays current.</li>
+            <li><strong>Use the legacy engine.</strong> Valve archived the older build as the
+              <a href="/versions/steam-legacy-branch/"><code>steam_legacy</code> beta branch</a> — but
+              read what you give up before switching.</li>
+          </ol>
+
+          <h2 id="remove">Removing a mod</h2>
+          <p>Delete the mod's folder. That's all.</p>
+          <p>Because a correct install never writes outside its own folder, removal leaves no trace and
+            the base game is untouched. Two things to remember:</p>
+          <ul>
+            <li>Clear the <code>-game</code> launch option if you set one.</li>
+            <li>Restart Steam to drop the library entry.</li>
+          </ul>
+          <p>If you extracted mod files directly into <code>valve</code> at some point, that <em>is</em>
+            damage — right-click Half-Life &rsaquo; Properties &rsaquo; Installed Files &rsaquo; Verify
+            integrity of game files to restore the originals.</p>
+
+          <h2>Quick diagnosis</h2>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>Symptom</th><th>Check</th></tr></thead>
+              <tbody>
+                <tr><td>Mod isn't in the Steam library</td><td>Restart Steam; or it's a <code>-game</code> mod</td></tr>
+                <tr><td>Half-Life starts as the normal game</td><td>Folder name doesn't match the launch parameter</td></tr>
+                <tr><td>Black screen then exit</td><td>Engine version — patch or steam_legacy</td></tr>
+                <tr><td>Menu works, crash at map load</td><td>Antivirus removed the mod's libraries</td></tr>
+                <tr><td>Missing or pink textures</td><td>Incomplete extraction — re-extract everything</td></tr>
+                <tr><td>Nothing at all happens</td><td><code>liblist.gam</code> is one folder too deep</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>For a worked example of all of these on a specific mod, see
+            <a href="/mods/brutal-half-life-not-working/">the Brutal Half-Life troubleshooting
+            walkthrough</a>.</p>
+
+          <h2>Frequently asked</h2>
+          <div class="faq">
+            <details>
+              <summary>Do I need the full game, or does a demo work?</summary>
+              <p>The full game. Mods load assets from the base installation, and a demo doesn't contain
+                them.</p>
+            </details>
+            <details>
+              <summary>Can I install a mod inside another mod's folder?</summary>
+              <p>No. Each mod is a sibling of <code>valve</code>, never nested inside another mod. Two
+                mods that both ship code can't be combined at all.</p>
+            </details>
+            <details>
+              <summary>Are mod folder names case-sensitive?</summary>
+              <p>On Windows, no. On Linux and Steam Deck, yes — <code>-game ModName</code> and
+                <code>-game modname</code> are different there. Match the folder exactly and it works
+                everywhere.</p>
+            </details>
+            <details>
+              <summary>Will mods disable my achievements?</summary>
+              <p>Mods run as separate entries and generally don't award the base game's achievements.
+                That's a consequence of how they launch, not a penalty.</p>
+            </details>
+            <details>
+              <summary>Is it safe to add an antivirus exclusion for the Half-Life folder?</summary>
+              <p>Mods ship unsigned <code>.dll</code> files that scanners sometimes quarantine, which
+                breaks them. If you add an exclusion, scope it to that folder only and download from
+                the author's official page rather than a re-upload.</p>
+            </details>
+          </div>
+        </div>
+
+        <section class="related">
+          <h2>Related guides</h2>
+          <ul>
+            <li><a href="/mods/brutal-half-life-not-working/">Brutal Half-Life won't work — every cause and fix
+              <span class="kicker">These rules applied to one specific mod.</span></a></li>
+            <li><a href="/mods/brutal-half-life-mmod/">Why two gameplay mods can't be combined
+              <span class="kicker">The data-vs-code rule, in full.</span></a></li>
+            <li><a href="/versions/steam-legacy-branch/">The steam_legacy branch explained
+              <span class="kicker">When rolling back the engine is worth it.</span></a></li>
+            <li><a href="/mods/cat-life/">Cat-Life — play Black Mesa as a cat
+              <span class="kicker">A GoldSrc mod worth installing.</span></a></li>
+          </ul>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-links">
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+      <p class="disclaimer">Lambda Archive is an independent fan project. It is not affiliated with,
+        endorsed by, or sponsored by Valve Corporation. Half-Life, the lambda logo, and all related
+        marks are trademarks of Valve Corporation.</p>
+    </div>
+  </footer>
+</body>
+</html>

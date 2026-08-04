@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use ReShade on Half-Life 2 — Step-by-Step Setup</title>
+  <meta name="description" content="Installing ReShade on Half-Life 2: which API to pick, the anti-aliasing setting you must turn off first, how to enable the depth buffer, and fixes for when nothing happens.">
+  <link rel="canonical" href="https://lambdaarchive.com/mods/reshade-half-life-2/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How to Use ReShade on Half-Life 2">
+  <meta property="og:description" content="Which API to pick, what to turn off first, and why the game freezes on the first launch.">
+  <meta property="og:url" content="https://lambdaarchive.com/mods/reshade-half-life-2/">
+  <meta property="og:site_name" content="Lambda Archive">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://lambdaarchive.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="theme-color" content="#101216">
+  <link rel="stylesheet" href="/css/base.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to use ReShade on Half-Life 2",
+    "description": "Install and configure ReShade for Half-Life 2 on the Source engine.",
+    "step": [
+      { "@type": "HowToStep", "name": "Turn off anti-aliasing", "text": "Disable anti-aliasing in Half-Life 2's video options and in your graphics card control panel before installing." },
+      { "@type": "HowToStep", "name": "Run the ReShade setup", "text": "Run ReShade_Setup, browse to hl2.exe in your Half-Life 2 folder and select it." },
+      { "@type": "HowToStep", "name": "Choose the rendering API", "text": "Select DirectX 9 when prompted. Half-Life 2 runs on the Source engine, which uses Direct3D 9." },
+      { "@type": "HowToStep", "name": "Install shader packages", "text": "Select the standard effects package when offered, then finish the installer." },
+      { "@type": "HowToStep", "name": "Launch and configure", "text": "Start Half-Life 2, wait for shaders to compile, press Home to open the ReShade overlay, then enable the depth buffer if you want ambient occlusion or depth of field." }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lambdaarchive.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Mods", "item": "https://lambdaarchive.com/mods/" },
+      { "@type": "ListItem", "position": 3, "name": "ReShade on Half-Life 2" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Which API should I choose when installing ReShade for Half-Life 2?",
+        "acceptedAnswer": { "@type": "Answer", "text": "DirectX 9. Half-Life 2 runs on Valve's Source engine, which renders through Direct3D 9. Choosing DirectX 10/11/12 or OpenGL will install the wrong hook and ReShade will not load." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does Half-Life 2 freeze for a minute after installing ReShade?",
+        "acceptedAnswer": { "@type": "Answer", "text": "ReShade compiles every installed shader the first time the game launches. This can take one to two minutes and the game may appear unresponsive. Do not close it — the freeze happens only on the first launch after installing or updating shaders." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why don't ambient occlusion or depth of field effects work?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Those effects read the depth buffer, which ReShade does not expose by default. Open the ReShade overlay, go to the add-on or settings tab, and enable depth buffer access. Note that ReShade disables depth buffer access in multiplayer sessions to prevent it being used as a cheat." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I uninstall ReShade from Half-Life 2?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Run the ReShade setup again, select hl2.exe, and choose the uninstall option. Alternatively delete the ReShade DLL, the reshade-shaders folder, and the ReShade ini files from the folder the installer wrote them to." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap-wide">
+      <a class="brand" href="/"><span class="mark">&#955;</span> Lambda Archive</a>
+      <nav class="site-nav">
+        <a href="/mods/" aria-current="page">Mods</a>
+        <a href="/voices/">Voice Lines</a>
+        <a href="/platforms/">Play Anywhere</a>
+        <a href="/characters/">Characters</a>
+        <a href="/about/">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <p class="crumbs"><a href="/">Home</a><span>&rsaquo;</span><a href="/mods/">Mods</a><span>&rsaquo;</span>ReShade on Half-Life 2</p>
+
+      <article class="article">
+        <h1>How to use ReShade on Half-Life 2</h1>
+        <p class="article-meta"><span>Setup guide</span><span>Source engine</span><span>Updated 2026</span></p>
+
+        <div class="article-body">
+          <p>ReShade is a post-processing injector — it sits between the game and your GPU and applies
+            effects to the finished frame. It doesn't modify Half-Life 2 itself, which makes it one of
+            the safest visual upgrades available and trivially reversible.</p>
+          <p>The setup takes about five minutes. Almost everything that goes wrong comes down to two
+            choices made in the installer, so get those right and the rest is straightforward.</p>
+
+          <div class="note">
+            <p><strong>The short version:</strong> pick <code>hl2.exe</code>, choose
+              <strong>DirectX 9</strong>, and turn off anti-aliasing before you start. Those three
+              things account for most failed installs.</p>
+          </div>
+
+          <div class="toc">
+            <p>On this page</p>
+            <ol>
+              <li><a href="#before">Do this before installing</a></li>
+              <li><a href="#install">Installing ReShade</a></li>
+              <li><a href="#first">The first launch (and the freeze)</a></li>
+              <li><a href="#depth">Enabling the depth buffer</a></li>
+              <li><a href="#trouble">When nothing happens</a></li>
+              <li><a href="#uninstall">Removing it cleanly</a></li>
+            </ol>
+          </div>
+
+          <h2 id="before">Do this before installing</h2>
+          <p><strong>Turn off anti-aliasing in two places.</strong> This is strongly recommended and
+            skipping it is a common source of blurry or broken output:</p>
+          <ol>
+            <li>In Half-Life 2: <strong>Options &rsaquo; Video &rsaquo; Advanced</strong>, set
+              anti-aliasing to <strong>None</strong>.</li>
+            <li>In your GPU control panel (NVIDIA Control Panel or AMD Software), make sure no
+              anti-aliasing is being forced on Half-Life 2.</li>
+          </ol>
+          <p>ReShade's own effects handle edge smoothing, and forced MSAA fights with them — most
+            visibly with anything that reads the depth buffer.</p>
+          <p><strong>Know where your game lives.</strong> You'll need to point the installer at
+            <code>hl2.exe</code>, normally at:</p>
+          <pre><code>Steam\steamapps\common\Half-Life 2\hl2.exe</code></pre>
+
+          <div class="ad-slot">AD SLOT · ARTICLE 01</div>
+
+          <h2 id="install">Installing ReShade</h2>
+          <div class="fix">
+            <h3><span class="n">01</span> Run the setup and select the game</h3>
+            <p>Download ReShade from <a href="https://reshade.me/" rel="nofollow noopener" target="_blank">reshade.me</a>
+              and run <code>ReShade_Setup</code>. Click the browse box, navigate to your Half-Life 2
+              folder, and select <strong><code>hl2.exe</code></strong>.</p>
+          </div>
+          <div class="fix">
+            <h3><span class="n">02</span> Choose DirectX 9 — not 10, 11, or 12</h3>
+            <p>When the installer asks for the rendering API, select <strong>DirectX 9</strong>.</p>
+            <p>Half-Life 2 runs on Valve's Source engine, which renders through Direct3D 9. Picking a
+              newer DirectX version installs a hook the game never calls, so ReShade simply never
+              loads — no error, no overlay, nothing. <strong>This is the single most common mistake in
+              ReShade setups for Source games.</strong></p>
+          </div>
+          <div class="fix">
+            <h3><span class="n">03</span> Install a shader package</h3>
+            <p>The installer offers to download effect packages. Take the standard one on your first
+              install — it includes the widely used effects and is what almost every preset expects to
+              find. You can add more later by re-running the setup.</p>
+            <p>If you're installing a preset someone else made, install it now too; presets reference
+              specific shaders by name and will show errors for anything missing.</p>
+          </div>
+
+          <h2 id="first">The first launch (and the freeze)</h2>
+          <p>Start Half-Life 2. It will very likely appear to hang for <strong>one to two minutes</strong>.</p>
+          <div class="note warn">
+            <p><strong>Do not kill the process.</strong> ReShade compiles every installed shader on
+              first run. The game is not frozen, it's working. This happens only on the first launch
+              after installing or updating shaders — subsequent launches are normal speed.</p>
+          </div>
+          <p>Once loaded, press <kbd>Home</kbd> to open the ReShade overlay. On first open you'll get a
+            short tutorial; you can step through it or skip it. The effect list is the main thing —
+            tick an effect to enable it, and changes apply live.</p>
+
+          <h2 id="depth">Enabling the depth buffer</h2>
+          <p>Ambient occlusion, depth of field, and most "realistic lighting" presets need access to
+            the game's depth buffer, which tells them how far each pixel is from the camera. ReShade
+            does not expose this by default.</p>
+          <p>Open the overlay and enable depth buffer access in the add-on/settings tab. If the depth
+            preview shows a flat or inverted image, the depth buffer options in the same panel include
+            toggles for reversed and upside-down depth — one combination will produce a correct
+            grayscale image of the scene.</p>
+          <div class="note">
+            <p><strong>Multiplayer note:</strong> ReShade deliberately blocks depth buffer access in
+              network games, because seeing through walls via the depth buffer would be a cheat. In
+              Half-Life 2 Deathmatch, depth-based effects will not work. This is intended behaviour,
+              not a bug.</p>
+          </div>
+
+          <div class="ad-slot">AD SLOT · ARTICLE 02</div>
+
+          <h2 id="trouble">When nothing happens</h2>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr><th>Symptom</th><th>Cause and fix</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Home key does nothing, no overlay</td><td>Wrong API chosen — reinstall and select DirectX 9</td></tr>
+                <tr><td>Overlay opens, but effects do nothing</td><td>No effects ticked, or the preset's shaders were never downloaded</td></tr>
+                <tr><td>AO / DOF have no visible effect</td><td>Depth buffer not enabled, or you're in a multiplayer session</td></tr>
+                <tr><td>Game hangs on launch, every time</td><td>Only the first launch should be slow &mdash; a repeating hang usually means a broken shader; remove the newest preset</td></tr>
+                <tr><td>Picture is blurry or edges shimmer</td><td>Anti-aliasing still forced on in-game or in the GPU control panel</td></tr>
+                <tr><td>Overlay appears in some Source games but not HL2</td><td>ReShade was installed to a different Source game's executable</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>If the overlay never appears, the fastest check is whether the ReShade DLL actually landed
+            next to the executable the game launches. Source games load their binaries from a
+            <code>bin</code> folder, and some installs need the files there rather than in the game
+            root. Re-running the installer and letting it place the files is more reliable than moving
+            them by hand.</p>
+
+          <h2 id="uninstall">Removing it cleanly</h2>
+          <p>Run <code>ReShade_Setup</code> again, select <code>hl2.exe</code>, and choose the uninstall
+            option. That removes the injector, the <code>reshade-shaders</code> folder, and the
+            configuration files.</p>
+          <p>Because ReShade never touches game files, uninstalling returns Half-Life 2 to exactly its
+            original state. Nothing to verify, nothing to repair.</p>
+
+          <h2>Frequently asked</h2>
+          <div class="faq">
+            <details>
+              <summary>Does ReShade work with Half-Life 2 mods and the episodes?</summary>
+              <p>Yes — Episode One, Episode Two and most Source mods use the same engine and the same
+                DirectX 9 path. Each executable needs its own ReShade install, though: installing to
+                <code>hl2.exe</code> does not cover a mod that launches through a different exe.</p>
+            </details>
+            <details>
+              <summary>Will ReShade get me VAC-banned?</summary>
+              <p>ReShade is a widely used post-processing tool and is not a cheat, which is exactly why
+                it blocks depth buffer access in multiplayer. That said, any injector carries some
+                risk with anti-cheat systems, and the cautious choice is to use it in single-player
+                only.</p>
+            </details>
+            <details>
+              <summary>How much performance does it cost?</summary>
+              <p>It depends entirely on which effects you enable. Simple colour grading is nearly free;
+                ambient occlusion and ray-traced-style shaders are expensive. Half-Life 2 is old enough
+                that most modern hardware has plenty of headroom — enable effects one at a time and
+                watch your frame rate.</p>
+            </details>
+            <details>
+              <summary>Can I use someone else's preset?</summary>
+              <p>Yes. Drop the <code>.ini</code> preset file into your ReShade folder and select it
+                from the preset dropdown in the overlay. Make sure you have every shader the preset
+                references, or you'll see a list of errors on load.</p>
+            </details>
+          </div>
+
+          <hr>
+          <p style="font-size:0.86rem;color:var(--ink-faint)">Steps verified against
+            <a href="https://reshade.me/" rel="nofollow noopener" target="_blank">ReShade's official documentation</a>
+            and community setup guides for Source-engine games. ReShade updates regularly — if the
+            installer no longer matches this, <a href="/contact/">let us know</a>.</p>
+        </div>
+
+        <section class="related">
+          <h2>Related guides</h2>
+          <ul>
+            <li><a href="/mods/brutal-half-life-not-working/">Brutal Half-Life won't work — every cause and fix
+              <span class="kicker">Including why it never shows up in your Steam library.</span></a></li>
+            <li><a href="/mods/brutal-half-life-mmod/">Can you run MMod and Brutal Half-Life together?
+              <span class="kicker">The honest answer, and what to do instead.</span></a></li>
+            <li><a href="/mods/">All Half-Life mod guides
+              <span class="kicker">GoldSrc and Source — how they differ and where each installs.</span></a></li>
+          </ul>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-links">
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+      <p class="disclaimer">Lambda Archive is an independent fan project. It is not affiliated with,
+        endorsed by, or sponsored by Valve Corporation. Half-Life, the lambda logo, and all related
+        marks are trademarks of Valve Corporation. ReShade is developed independently by crosire and
+        contributors.</p>
+    </div>
+  </footer>
+</body>
+</html>

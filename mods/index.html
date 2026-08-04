@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Half-Life Mods — Install Guides, Fixes and What's Worth Playing</title>
+  <meta name="description" content="Half-Life 1 and Half-Life 2 mods: how the two engines differ, how to install mods correctly, and fixes for the ones that most often refuse to launch.">
+  <link rel="canonical" href="https://lambdaarchive.com/mods/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Half-Life Mods — Install Guides and Fixes">
+  <meta property="og:description" content="How Half-Life 1 and 2 mods install, why they break, and which ones are worth your evening.">
+  <meta property="og:url" content="https://lambdaarchive.com/mods/">
+  <meta property="og:site_name" content="Lambda Archive">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://lambdaarchive.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="theme-color" content="#101216">
+  <link rel="stylesheet" href="/css/base.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lambdaarchive.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Mods" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can Half-Life 1 mods be installed into Half-Life 2?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Half-Life 1 runs on the GoldSrc engine and Half-Life 2 runs on Source. The two use different file formats and different mod structures, so a mod built for one cannot be installed into the other." }
+      },
+      {
+        "@type": "Question",
+        "name": "Where do Half-Life mods get installed?",
+        "acceptedAnswer": { "@type": "Answer", "text": "GoldSrc mods go into their own folder directly inside the Half-Life directory, alongside the valve folder. Source mods for Half-Life 2 go into the sourcemods folder inside your Steam directory, which is a different location entirely." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why did my Half-Life mods stop working?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The most common cause is the Half-Life 25th Anniversary update, which changed enough of the GoldSrc engine to break a large share of existing mods and the official expansion packs. Many mods have since released compatibility patches, and Valve keeps the older engine available as a beta branch named steam_legacy." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap-wide">
+      <a class="brand" href="/"><span class="mark">&#955;</span> Lambda Archive</a>
+      <nav class="site-nav">
+        <a href="/mods/" aria-current="page">Mods</a>
+        <a href="/voices/">Voice Lines</a>
+        <a href="/platforms/">Play Anywhere</a>
+        <a href="/characters/">Characters</a>
+        <a href="/about/">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <p class="crumbs"><a href="/">Home</a><span>&rsaquo;</span>Mods</p>
+
+      <article class="article">
+        <h1>Half-Life mods</h1>
+        <p class="article-meta"><span>Section index</span><span>GoldSrc &amp; Source</span><span>Updated 2026</span></p>
+
+        <div class="article-body">
+          <p>Half-Life has one of the longest-running mod scenes in PC gaming, and also one of the most
+            confusing to get started with — because "Half-Life mods" means two incompatible things
+            depending on which game you own. Sort that out first and most install problems disappear
+            before they happen.</p>
+
+          <h2>The one distinction that matters</h2>
+          <p>Half-Life 1 and Half-Life 2 do not share a mod format. They do not share an engine, a file
+            structure, or an install location.</p>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr><th></th><th>Half-Life 1 mods</th><th>Half-Life 2 mods</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Engine</td><td>GoldSrc</td><td>Source</td></tr>
+                <tr><td>Installs into</td><td><code>...\common\Half-Life\&lt;modname&gt;\</code></td><td><code>...\Steam\steamapps\sourcemods\</code></td></tr>
+                <tr><td>Identified by</td><td><code>liblist.gam</code></td><td><code>gameinfo.txt</code></td></tr>
+                <tr><td>Usually launched via</td><td>Steam library entry, or <code>-game</code> launch option</td><td>Steam library entry after a client restart</td></tr>
+                <tr><td>Workshop support</td><td>No</td><td>Partial &mdash; addons, not full mods</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>A GoldSrc mod dropped into <code>sourcemods</code> will never appear. A Source mod placed
+            inside the Half-Life folder will never appear either. This single mismatch is behind a
+            large share of "the mod didn't install" posts.</p>
+
+          <div class="ad-slot">AD SLOT · MODS 01</div>
+
+          <h2>Why so many mods broke recently</h2>
+          <p>Half-Life's 25th Anniversary update rebuilt significant parts of the GoldSrc engine. It
+            was good for the base game and bad for compatibility: a large share of existing mods, and
+            the official expansion packs, stopped working correctly on the new build.</p>
+          <p>Two routes out, in order of preference:</p>
+          <ol>
+            <li><strong>Check whether the mod shipped a compatibility patch.</strong> Many of the
+              actively maintained ones did. This is better than the alternative because it leaves your
+              main installation on the current build.</li>
+            <li><strong>Switch to the legacy engine.</strong> Valve archived the pre-update build as a
+              public beta branch named <code>steam_legacy</code>, selectable from the game's Properties
+              &rsaquo; Betas menu.</li>
+          </ol>
+
+          <h2>Troubleshooting guides</h2>
+          <ul>
+            <li><a href="/mods/brutal-half-life-not-working/">Brutal Half-Life won't work — every cause and fix</a>
+              — including the reason it never appears in your Steam library.</li>
+            <li><a href="/mods/brutal-half-life-mmod/">Making Half-Life MMod work alongside Brutal Half-Life</a>
+              — why they conflict, and how to keep both.</li>
+            <li><a href="/mods/reshade-half-life-2/">Installing ReShade on Half-Life 2 without breaking the HUD</a>
+              — including the DirectX version picker everyone gets wrong.</li>
+            <li><a href="/mods/install-goldsrc-mods/">How to install any GoldSrc mod correctly</a>
+              — the folder rules that apply to every Half-Life 1 mod.</li>
+          </ul>
+
+          <h2>Mod guides</h2>
+          <ul>
+            <li><a href="/mods/cat-life/">Cat-Life — the mod where you play as a cat</a>
+              (often searched for as the "male cat" mod)</li>
+            <li><a href="/mods/half-life-insecure/">Half-Life: Insecure — Black Mesa from the security desk</a></li>
+            <li><a href="/mods/half-life-2-workshop/">Using the Half-Life 2 Workshop</a></li>
+            <li><a href="/mods/best-half-life-2-mod-games/">Standalone games that started as Half-Life 2 mods</a></li>
+          </ul>
+
+          <h2>Frequently asked</h2>
+          <div class="faq">
+            <details>
+              <summary>Can I install a Half-Life 1 mod into Half-Life 2?</summary>
+              <p>No. Different engines, different file formats, different install locations. There is
+                no conversion — a GoldSrc mod only runs on GoldSrc.</p>
+            </details>
+            <details>
+              <summary>Do mods disable Steam achievements?</summary>
+              <p>Mods run as separate entries and generally don't award the base game's achievements.
+                This is a side effect of how mods are launched, not a penalty.</p>
+            </details>
+            <details>
+              <summary>Are Half-Life mods safe to install?</summary>
+              <p>Mods from established authors on ModDB are as safe as any downloaded software, but
+                they ship unsigned <code>.dll</code> files that antivirus tools sometimes quarantine.
+                Download from the author's official page rather than a re-upload, and be deliberate
+                about any exclusion you add.</p>
+            </details>
+            <details>
+              <summary>Will installing a mod break my normal game?</summary>
+              <p>A correctly installed mod lives in its own folder and never touches <code>valve</code>.
+                The exception is a launch option left in place — <code>-game</code> will keep starting
+                the mod until you clear it.</p>
+            </details>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-links">
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+      <p class="disclaimer">Lambda Archive is an independent fan project. It is not affiliated with,
+        endorsed by, or sponsored by Valve Corporation. Half-Life, the lambda logo, and all related
+        marks are trademarks of Valve Corporation. Mods referenced here are the work of their own
+        authors and are not distributed from this site.</p>
+    </div>
+  </footer>
+</body>
+</html>

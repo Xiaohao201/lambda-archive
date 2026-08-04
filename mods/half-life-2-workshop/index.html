@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Half-Life 2 Steam Workshop — How It Works and What It Replaces</title>
+  <meta name="description" content="Half-Life 2 got Steam Workshop support in the 2024 anniversary update. How to use it, what it can and can't do, and how it differs from the old sourcemods folder.">
+  <link rel="canonical" href="https://lambdaarchive.com/mods/half-life-2-workshop/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The Half-Life 2 Steam Workshop Explained">
+  <meta property="og:description" content="Subscribe-and-play mods for HL2 — and how they differ from sourcemods installs.">
+  <meta property="og:url" content="https://lambdaarchive.com/mods/half-life-2-workshop/">
+  <meta property="og:site_name" content="Lambda Archive">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://lambdaarchive.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="theme-color" content="#101216">
+  <link rel="stylesheet" href="/css/base.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Half-Life 2 Steam Workshop — How It Works and What It Replaces",
+    "description": "How Half-Life 2's Steam Workshop support works and how it differs from sourcemods installs.",
+    "author": { "@type": "Organization", "name": "Lambda Archive" },
+    "publisher": { "@type": "Organization", "name": "Lambda Archive" },
+    "mainEntityOfPage": "https://lambdaarchive.com/mods/half-life-2-workshop/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lambdaarchive.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Mods", "item": "https://lambdaarchive.com/mods/" },
+      { "@type": "ListItem", "position": 3, "name": "Half-Life 2 Workshop" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does Half-Life 2 have Steam Workshop support?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Steam Workshop support was added in the Half-Life 2 20th Anniversary Update released on 16 November 2024. Players can subscribe to community content that replaces weapons, enemies and UI, or adds entire campaigns, and play it directly from the game." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between the Half-Life 2 Workshop and the sourcemods folder?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Workshop items are subscribed through Steam, download automatically and load inside Half-Life 2 itself. Sourcemods are standalone total conversions installed manually into the sourcemods folder, and they appear in your Steam library as separate entries. They are two different systems that coexist." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do Half-Life 2 Workshop mods work with the episodes?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The anniversary update made Episode One, Episode Two and Lost Coast accessible from Half-Life 2's own menu, which brought them under the same installation. Individual Workshop items still declare what they support, so check the item's description rather than assuming." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why did my Half-Life 2 mods break after the anniversary update?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The 20th Anniversary Update changed the game substantially, and some older mods do not work on the new build. Valve archived the previous version as a public beta branch named steam_legacy with the description Pre-20th Anniversary Build, which can be selected from the game's Betas tab." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap-wide">
+      <a class="brand" href="/"><span class="mark">&#955;</span> Lambda Archive</a>
+      <nav class="site-nav">
+        <a href="/mods/" aria-current="page">Mods</a>
+        <a href="/voices/">Voice Lines</a>
+        <a href="/platforms/">Play Anywhere</a>
+        <a href="/characters/">Characters</a>
+        <a href="/about/">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <p class="crumbs"><a href="/">Home</a><span>&rsaquo;</span><a href="/mods/">Mods</a><span>&rsaquo;</span>Half-Life 2 Workshop</p>
+
+      <article class="article">
+        <h1>The Half-Life 2 Steam Workshop — how it works and what it replaces</h1>
+        <p class="article-meta"><span>Mod guide</span><span>Half-Life 2 (Source)</span><span>Updated 2026</span></p>
+
+        <div class="article-body">
+          <p>For twenty years, modding Half-Life 2 meant downloading an archive, extracting it into the
+            right folder, and restarting Steam. That changed in November 2024, and a lot of guides
+            still haven't caught up.</p>
+
+          <div class="note ok">
+            <p><strong>Half-Life 2 has Steam Workshop support.</strong> It arrived with the 20th
+              Anniversary Update on 16 November 2024. You can subscribe to community content and play
+              it from inside the game — no folders, no manual extraction.</p>
+          </div>
+
+          <div class="toc">
+            <p>On this page</p>
+            <ol>
+              <li><a href="#what">What the Workshop can do</a></li>
+              <li><a href="#use">How to use it</a></li>
+              <li><a href="#vs">Workshop vs the sourcemods folder</a></li>
+              <li><a href="#broke">If your old mods stopped working</a></li>
+            </ol>
+          </div>
+
+          <h2 id="what">What the Workshop can do</h2>
+          <p>Broader than people expect. Workshop content for Half-Life 2 covers:</p>
+          <ul>
+            <li><strong>Entire campaigns</strong> — full custom level sets, played through the base
+              game.</li>
+            <li><strong>Weapon replacements</strong> — new models, animations and effects.</li>
+            <li><strong>Enemy replacements</strong> — reworked NPCs.</li>
+            <li><strong>UI changes</strong> — HUD and menu overhauls.</li>
+          </ul>
+          <p>The same update also brought Episode One, Episode Two and Lost Coast into Half-Life 2's own
+            menu, so the whole series now sits under one installation rather than four library entries.</p>
+
+          <div class="ad-slot">AD SLOT · ARTICLE 01</div>
+
+          <h2 id="use">How to use it</h2>
+          <div class="fix">
+            <h3><span class="n">01</span> Find the Workshop</h3>
+            <p>Open Half-Life 2's Steam store page and select the <strong>Workshop</strong> tab, or
+              reach it from the Community menu. Browse or search the same way you would for any other
+              game with Workshop support.</p>
+          </div>
+          <div class="fix">
+            <h3><span class="n">02</span> Subscribe</h3>
+            <p>Click <strong>Subscribe</strong> on an item. Steam downloads it automatically in the
+              background — there is nothing to extract and no folder to find.</p>
+          </div>
+          <div class="fix">
+            <h3><span class="n">03</span> Enable it in-game</h3>
+            <p>Launch Half-Life 2 and enable your subscribed content from the in-game menu. Campaigns
+              are started from there; replacements apply to the game once active.</p>
+            <p>Unsubscribing removes the content cleanly. This is the Workshop's real advantage — no
+              leftover files, no manual cleanup, no wondering which mod broke your install.</p>
+          </div>
+          <div class="note warn">
+            <p><strong>Replacements can conflict.</strong> Two items that replace the same weapon are
+              in the same argument two GoldSrc gameplay mods have — enable one at a time when testing,
+              and disable everything before reporting a problem.</p>
+          </div>
+
+          <h2 id="vs">Workshop vs the sourcemods folder</h2>
+          <p>The Workshop did not replace the old system. <strong>Half-Life 2 now has two parallel mod
+            systems</strong>, and knowing which one a mod uses saves a lot of confusion.</p>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr><th></th><th>Steam Workshop</th><th>sourcemods folder</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Install</td><td>Subscribe in Steam</td><td>Extract manually</td></tr>
+                <tr><td>Location</td><td>Managed by Steam</td><td><code>Steam\steamapps\sourcemods\</code></td></tr>
+                <tr><td>Identified by</td><td>Workshop item ID</td><td><code>gameinfo.txt</code></td></tr>
+                <tr><td>Appears as</td><td>Content inside Half-Life 2</td><td>A separate Steam library entry</td></tr>
+                <tr><td>Typical use</td><td>Campaigns, replacements, UI</td><td>Standalone total conversions</td></tr>
+                <tr><td>Removal</td><td>Unsubscribe</td><td>Delete the folder</td></tr>
+                <tr><td>Needs Steam restart</td><td>No</td><td>Yes</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>The rule of thumb: <strong>if a mod is big enough to feel like its own game, it's a
+            sourcemod.</strong> Standalone total conversions with their own branding and menus still
+            live in <code>sourcemods</code> and still need a Steam restart to appear.</p>
+          <p>Neither of these has anything to do with Half-Life 1. GoldSrc mods use a third layout
+            entirely — see <a href="/mods/install-goldsrc-mods/">installing GoldSrc mods</a>.</p>
+
+          <div class="ad-slot">AD SLOT · ARTICLE 02</div>
+
+          <h2 id="broke">If your old mods stopped working</h2>
+          <p>The 20th Anniversary Update changed Half-Life 2 substantially, and some existing mods
+            don't run on the new build. This mirrors what happened to Half-Life 1 a year earlier.</p>
+          <p>Valve archived the previous version as a public beta branch:</p>
+          <div class="fix">
+            <h3>Switching to the pre-anniversary build</h3>
+            <ol>
+              <li>Right-click <strong>Half-Life 2</strong> in your Steam library &rsaquo;
+                <strong>Properties</strong>.</li>
+              <li>Open the <strong>Betas</strong> tab.</li>
+              <li>Select <strong>steam_legacy</strong> — described as <strong>Pre-20th Anniversary
+                Build</strong>.</li>
+            </ol>
+          </div>
+          <div class="note warn">
+            <p><strong>Don't confuse the two legacy branches.</strong> Half-Life 1 and Half-Life 2 each
+              have a branch named <code>steam_legacy</code>, and they roll back to different things —
+              Half-Life 1's is the Pre-25th Anniversary Build, Half-Life 2's is Pre-20th. Setting one
+              does nothing for the other. See
+              <a href="/versions/steam-legacy-branch/">the full explanation of both</a>.</p>
+          </div>
+          <p>Before rolling back, check whether the mod has an updated version — the anniversary build
+            is the one Valve continues to support, and staying current is better when it's an option.</p>
+
+          <h2>Frequently asked</h2>
+          <div class="faq">
+            <details>
+              <summary>Is Workshop content free?</summary>
+              <p>Yes. Half-Life 2's Workshop is community content, subscribed at no cost.</p>
+            </details>
+            <details>
+              <summary>Can I use Workshop mods and sourcemods at the same time?</summary>
+              <p>They're separate systems, so yes in the sense that both can be installed. But a
+                sourcemod is its own game entry — your Half-Life 2 Workshop subscriptions don't carry
+                into it.</p>
+            </details>
+            <details>
+              <summary>Do Workshop mods disable achievements?</summary>
+              <p>Behaviour varies by item and Valve hasn't documented a blanket rule. If achievements
+                matter to you, check the item's description or test with a save you don't mind losing.</p>
+            </details>
+            <details>
+              <summary>Where does Workshop content download to?</summary>
+              <p>Into Steam's Workshop content directory, managed automatically. You don't need to know
+                the path — that's the point of it.</p>
+            </details>
+            <details>
+              <summary>Can I publish my own mod to the Workshop?</summary>
+              <p>Yes, that's what the Workshop is for. Valve's own developer documentation covers the
+                packaging and submission process.</p>
+            </details>
+          </div>
+
+          <hr>
+          <p style="font-size:0.86rem;color:var(--ink-faint)">Update contents verified against Valve's
+            <a href="https://store.steampowered.com/news/app/220/view/6633333780228604001" rel="nofollow noopener" target="_blank">Half-Life 2 20th Anniversary Update announcement</a>
+            and contemporaneous reporting. Something changed?
+            <a href="/contact/">Tell us</a>.</p>
+        </div>
+
+        <section class="related">
+          <h2>Related guides</h2>
+          <ul>
+            <li><a href="/mods/install-goldsrc-mods/">Installing GoldSrc mods (Half-Life 1)
+              <span class="kicker">The third mod layout, and why it's nothing like these two.</span></a></li>
+            <li><a href="/versions/steam-legacy-branch/">The steam_legacy branches explained
+              <span class="kicker">Both of them — HL1's and HL2's.</span></a></li>
+            <li><a href="/mods/reshade-half-life-2/">How to use ReShade on Half-Life 2
+              <span class="kicker">Visual changes without touching game files at all.</span></a></li>
+          </ul>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-links">
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+      <p class="disclaimer">Lambda Archive is an independent fan project. It is not affiliated with,
+        endorsed by, or sponsored by Valve Corporation. Half-Life, the lambda logo, and all related
+        marks are trademarks of Valve Corporation.</p>
+    </div>
+  </footer>
+</body>
+</html>

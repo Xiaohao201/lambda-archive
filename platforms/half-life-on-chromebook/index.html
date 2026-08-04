@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Play Half-Life on a Chromebook in 2026 (Steam Is Gone)</title>
+  <meta name="description" content="Google killed Steam for Chromebooks on 1 January 2026. Three methods still work for Half-Life — and one of them runs it natively, because Half-Life has an official Linux build.">
+  <link rel="canonical" href="https://lambdaarchive.com/platforms/half-life-on-chromebook/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How to Play Half-Life on a Chromebook in 2026">
+  <meta property="og:description" content="Steam for Chromebooks is dead. Three methods that still work, ranked by hassle.">
+  <meta property="og:url" content="https://lambdaarchive.com/platforms/half-life-on-chromebook/">
+  <meta property="og:site_name" content="Lambda Archive">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://lambdaarchive.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="theme-color" content="#101216">
+  <link rel="stylesheet" href="/css/base.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Play Half-Life on a Chromebook in 2026",
+    "description": "Steam for Chromebooks ended on 1 January 2026. Three methods that still work for Half-Life.",
+    "author": { "@type": "Organization", "name": "Lambda Archive" },
+    "publisher": { "@type": "Organization", "name": "Lambda Archive" },
+    "mainEntityOfPage": "https://lambdaarchive.com/platforms/half-life-on-chromebook/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lambdaarchive.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Play Anywhere", "item": "https://lambdaarchive.com/platforms/" },
+      { "@type": "ListItem", "position": 3, "name": "Half-Life on Chromebook" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can you still install Steam on a Chromebook?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Not the official ChromeOS version. Google ended Steam for Chromebooks on 1 January 2026, and games installed through that beta no longer run. You can still install the Linux version of Steam inside the ChromeOS Linux development environment, which is a different thing and still works." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Half-Life run natively on Linux?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Valve ships official Linux builds of both Half-Life and Half-Life 2, so on a Chromebook's Linux environment they run natively rather than through a compatibility layer. This is why they perform far better than most games on the same hardware." }
+      },
+      {
+        "@type": "Question",
+        "name": "Will Half-Life run on a low-end Chromebook?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Half-Life 1 is from 1998 and will run on almost anything, including modest ARM and Celeron Chromebooks. Half-Life 2 is heavier and needs a mid-range or better machine to be comfortable, though it remains a light load by modern standards." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to own Half-Life to play it on a Chromebook?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, for every method. The Linux route downloads it through your Steam account, and third-party engine ports such as Xash3D require you to supply the game's data files from a copy you own. None of these methods provide the game itself." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap-wide">
+      <a class="brand" href="/"><span class="mark">&#955;</span> Lambda Archive</a>
+      <nav class="site-nav">
+        <a href="/mods/">Mods</a>
+        <a href="/voices/">Voice Lines</a>
+        <a href="/platforms/" aria-current="page">Play Anywhere</a>
+        <a href="/characters/">Characters</a>
+        <a href="/about/">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <p class="crumbs"><a href="/">Home</a><span>&rsaquo;</span><a href="/platforms/">Play Anywhere</a><span>&rsaquo;</span>Half-Life on Chromebook</p>
+
+      <article class="article">
+        <h1>How to play Half-Life on a Chromebook in 2026</h1>
+        <p class="article-meta"><span>Platform guide</span><span>ChromeOS</span><span>Updated August 2026</span></p>
+
+        <div class="article-body">
+          <p>Most guides you'll find for this tell you to install Steam for ChromeOS. Don't — it no
+            longer exists.</p>
+
+          <div class="note warn">
+            <p><strong>Steam for Chromebooks ended on 1 January 2026.</strong> Google and Valve shut
+              down the beta rather than graduating it, and games installed through it no longer run.
+              If you followed a guide that told you to enable it, that guide predates the shutdown.</p>
+          </div>
+
+          <p>The good news is that Half-Life is unusually well suited to what's left. Valve ships
+            <strong>official Linux builds of both Half-Life and Half-Life 2</strong>, and every
+            Chromebook has a Linux environment. So unlike almost every other Windows game, Half-Life
+            doesn't need a translation layer here — it runs natively.</p>
+
+          <h2>The three methods, compared</h2>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr><th>Method</th><th>Best for</th><th>Needs</th><th>Effort</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="#linux">Linux + Steam</a></td>
+                  <td>The proper experience, HL1 and HL2</td>
+                  <td>x86 Chromebook, ~10 GB free</td>
+                  <td>Medium</td>
+                </tr>
+                <tr>
+                  <td><a href="#xash">Xash3D (Android)</a></td>
+                  <td>Weak or ARM Chromebooks, HL1 only</td>
+                  <td>Game files you own</td>
+                  <td>Low</td>
+                </tr>
+                <tr>
+                  <td><a href="#cloud">Cloud gaming</a></td>
+                  <td>Any Chromebook, zero setup</td>
+                  <td>Subscription + good connection</td>
+                  <td>Lowest</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="ad-slot">AD SLOT · ARTICLE 01</div>
+
+          <h2 id="linux">Method 1 — Linux + Steam (the real thing)</h2>
+          <p>ChromeOS includes a Linux development environment. It is entirely separate from the
+            discontinued Steam for ChromeOS beta and is still fully supported.</p>
+          <div class="fix">
+            <h3><span class="n">01</span> Turn on the Linux environment</h3>
+            <p>Open <strong>Settings &rsaquo; About ChromeOS &rsaquo; Developers</strong>, find
+              <strong>Linux development environment</strong> and turn it on. When it asks for a disk
+              size, give it more than the default — Half-Life 2 plus Steam wants roughly 10 GB, and
+              growing the disk later is more annoying than sizing it right now.</p>
+          </div>
+          <div class="fix">
+            <h3><span class="n">02</span> Install Steam inside Linux</h3>
+            <p>Open the Linux terminal and install the Steam client from the Debian repositories.
+              Download Valve's official <code>.deb</code> package, then install it — the package
+              manager will pull in the graphics and 32-bit libraries it needs.</p>
+            <p>You are installing <strong>Steam for Linux</strong>, the same client used on desktop
+              Linux. This is not the removed ChromeOS beta and is not affected by its shutdown.</p>
+          </div>
+          <div class="fix">
+            <h3><span class="n">03</span> Install Half-Life normally</h3>
+            <p>Sign in, find Half-Life in your library, and install it. Because Valve publishes native
+              Linux builds, there is no Proton step and no compatibility settings to fight with.</p>
+            <p>If a title in your library shows as unavailable, it has no Linux build — enable Steam
+              Play in Steam's settings to run it through Proton. For Half-Life and Half-Life 2 you
+              won't need to.</p>
+          </div>
+          <div class="note">
+            <p><strong>ARM Chromebooks:</strong> if your machine has a MediaTek or Snapdragon chip
+              rather than Intel or AMD, the x86 Steam client won't run. Skip to method 2 or 3.</p>
+          </div>
+
+          <h2 id="xash">Method 2 — Xash3D FWGS (Android app)</h2>
+          <p>ChromeOS runs Android apps, and Xash3D FWGS is an open-source reimplementation of the
+            GoldSrc engine with an Android build. It runs Half-Life 1 from the game's own data files.</p>
+          <p>This is the best option on a weak or ARM Chromebook. Half-Life 1's requirements are from
+            1998, so it runs comfortably on hardware that would struggle with anything else.</p>
+          <div class="note">
+            <p><strong>You must own the game.</strong> Xash3D is an engine, not a copy of Half-Life —
+              it needs the <code>valve</code> folder from an installation you own. Copy that folder
+              across and point the app at it. Distributing those files is piracy; using your own is
+              not.</p>
+          </div>
+          <p>The trade-off: this is Half-Life 1 only. Half-Life 2 runs on Source, which Xash3D does not
+            implement.</p>
+
+          <div class="ad-slot">AD SLOT · ARTICLE 02</div>
+
+          <h2 id="cloud">Method 3 — Cloud gaming</h2>
+          <p>Streaming shifts the work to a remote machine and sends you video, which makes even the
+            cheapest Chromebook irrelevant to performance. Services like GeForce NOW, Shadow and
+            Boosteroid all run in the browser.</p>
+          <p>Two caveats worth knowing before you subscribe:</p>
+          <ul>
+            <li><strong>Catalogue coverage varies.</strong> Streaming services support specific title
+              lists, and older games are not always included. Check that the exact game you want is
+              supported before paying.</li>
+            <li><strong>Input lag is real.</strong> For a slow strategy game it doesn't matter. For a
+              shooter where you're leading a headcrab jump, it does. A wired or strong 5&nbsp;GHz
+              connection makes a large difference.</li>
+          </ul>
+          <p>Given that Half-Life runs natively on the Linux route, cloud gaming is mainly worth it if
+            you're on an ARM Chromebook <em>and</em> want Half-Life 2.</p>
+
+          <h2>Which should you pick?</h2>
+          <ul>
+            <li><strong>Intel or AMD Chromebook</strong> — Method 1. Native Linux builds, no
+              compromises, both games.</li>
+            <li><strong>ARM Chromebook, Half-Life 1</strong> — Method 2. Light, fast, works well.</li>
+            <li><strong>ARM Chromebook, Half-Life 2</strong> — Method 3, or play on something else.</li>
+            <li><strong>School-managed Chromebook</strong> — probably none of them. Managed devices
+              usually have the Linux environment and app installs blocked by policy, and that is set by
+              your administrator, not by you.</li>
+          </ul>
+
+          <h2>Frequently asked</h2>
+          <div class="faq">
+            <details>
+              <summary>Can I get my Steam for ChromeOS games back?</summary>
+              <p>Not through that route — the beta is closed. Your Steam <em>account</em> and licences
+                are unaffected, so anything you own can be reinstalled through Linux Steam or played on
+                another device. You lost the ChromeOS client, not your games.</p>
+            </details>
+            <details>
+              <summary>Does Half-Life really run natively on Linux?</summary>
+              <p>Yes. Valve has shipped Linux builds of Half-Life and Half-Life 2 for years. It's one
+                of the reasons Half-Life remains a good fit for Chromebooks and Steam Deck alike.</p>
+            </details>
+            <details>
+              <summary>How much storage do I need?</summary>
+              <p>Budget around 10 GB for the Linux container with Steam and Half-Life 2. Half-Life 1
+                alone is tiny — well under 5 GB including the client.</p>
+            </details>
+            <details>
+              <summary>Will mods work?</summary>
+              <p>GoldSrc mods that are plain data — maps, models, sounds — generally work on Linux.
+                Mods shipping compiled Windows libraries do not, because those are Windows binaries.
+                That rules out most gameplay overhauls. See our <a href="/mods/">mod guides</a> for
+                which is which.</p>
+            </details>
+            <details>
+              <summary>Why not just use Android's Steam Link app?</summary>
+              <p>Steam Link streams from a gaming PC you already own on the same network. If you have
+                one, it's an excellent option. If you don't, there's nothing to stream from — which is
+                usually the situation people asking this question are in.</p>
+            </details>
+          </div>
+
+          <hr>
+          <p style="font-size:0.86rem;color:var(--ink-faint)">Shutdown date confirmed via Google's
+            announcement and contemporaneous reporting from
+            <a href="https://9to5google.com/2025/08/07/steam-chromebook-2026/" rel="nofollow noopener" target="_blank">9to5Google</a>,
+            <a href="https://www.pcgamer.com/hardware/steam-for-chromebooks-is-getting-axed-in-2026-instead-of-exiting-its-4-year-beta/" rel="nofollow noopener" target="_blank">PC Gamer</a>
+            and <a href="https://www.tomshardware.com/software/chromeos/google-to-kill-steam-for-chromebook-beta-in-2026-installed-games-will-no-longer-be-available-to-play" rel="nofollow noopener" target="_blank">Tom's Hardware</a>.
+            ChromeOS changes often — <a href="/contact/">tell us</a> if this drifts out of date.</p>
+        </div>
+
+        <section class="related">
+          <h2>Related guides</h2>
+          <ul>
+            <li><a href="/mods/">Half-Life mod guides
+              <span class="kicker">Which mods work on Linux, and which are Windows-only.</span></a></li>
+            <li><a href="/mods/brutal-half-life-not-working/">Brutal Half-Life won't work — every cause and fix
+              <span class="kicker">Applies on Linux and Proton too.</span></a></li>
+          </ul>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-links">
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+      <p class="disclaimer">Lambda Archive is an independent fan project. It is not affiliated with,
+        endorsed by, or sponsored by Valve Corporation or Google. Half-Life, the lambda logo, and all
+        related marks are trademarks of Valve Corporation.</p>
+    </div>
+  </footer>
+</body>
+</html>

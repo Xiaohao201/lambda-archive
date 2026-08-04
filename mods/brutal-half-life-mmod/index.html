@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Half-Life MMod + Brutal Half-Life — What Actually Works</title>
+  <meta name="description" content="Can you run Half-Life MMod and Brutal Half-Life together? The honest technical answer, why every merge attempt fails, and the three setups that do work.">
+  <link rel="canonical" href="https://lambdaarchive.com/mods/brutal-half-life-mmod/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Half-Life MMod + Brutal Half-Life — What Actually Works">
+  <meta property="og:description" content="Why the merge fails, and the three setups that do work.">
+  <meta property="og:url" content="https://lambdaarchive.com/mods/brutal-half-life-mmod/">
+  <meta property="og:site_name" content="Lambda Archive">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://lambdaarchive.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="theme-color" content="#101216">
+  <link rel="stylesheet" href="/css/base.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Half-Life MMod + Brutal Half-Life — What Actually Works",
+    "description": "Why the two mods cannot be merged, and the setups that do work.",
+    "author": { "@type": "Organization", "name": "Lambda Archive" },
+    "publisher": { "@type": "Organization", "name": "Lambda Archive" },
+    "mainEntityOfPage": "https://lambdaarchive.com/mods/brutal-half-life-mmod/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lambdaarchive.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Mods", "item": "https://lambdaarchive.com/mods/" },
+      { "@type": "ListItem", "position": 3, "name": "MMod + Brutal Half-Life" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can Half-Life MMod and Brutal Half-Life be merged into one install?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Both mods ship their own compiled game libraries, and GoldSrc loads exactly one set of libraries per mod folder. Copying one mod's files over the other overwrites those libraries, which disables whichever mod lost. There is no load order or patch that resolves this." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does Half-Life MMod work with some mods but not Brutal Half-Life?",
+        "acceptedAnswer": { "@type": "Answer", "text": "MMod is compatible with campaign mods, which consist of maps, models and sounds but no code. Brutal Half-Life is a gameplay mod with its own compiled libraries. Two sets of libraries cannot run at once, so gameplay mods are mutually exclusive while campaign mods are not." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I keep both mods installed at the same time?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. They live in separate folders and do not interfere with each other on disk. You choose which one to play by changing the -game launch option, so switching between them takes a few seconds." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I copy weapon models or sounds from one mod to the other?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Assets such as models, sprites and sounds can sometimes be copied because they are data rather than code. Behaviour cannot: a weapon model copied across will not bring its firing behaviour with it, since that lives in the mod's compiled libraries." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap-wide">
+      <a class="brand" href="/"><span class="mark">&#955;</span> Lambda Archive</a>
+      <nav class="site-nav">
+        <a href="/mods/" aria-current="page">Mods</a>
+        <a href="/voices/">Voice Lines</a>
+        <a href="/platforms/">Play Anywhere</a>
+        <a href="/characters/">Characters</a>
+        <a href="/about/">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <p class="crumbs"><a href="/">Home</a><span>&rsaquo;</span><a href="/mods/">Mods</a><span>&rsaquo;</span>MMod + Brutal Half-Life</p>
+
+      <article class="article">
+        <h1>Half-Life MMod and Brutal Half-Life together — what actually works</h1>
+        <p class="article-meta"><span>Mod compatibility</span><span>Half-Life (GoldSrc)</span><span>Updated 2026</span></p>
+
+        <div class="article-body">
+          <p>On paper the combination is perfect. Brutal Half-Life adds weapons, gore and much larger
+            ammo pools; MMod modernises the feel of the game and thickens up encounters. People have
+            been trying to merge them for years.</p>
+          <p>They can't be merged, and it's worth understanding why — because once you know the reason,
+            you'll also know why no guide, patch, or load order will ever fix it, and you can stop
+            burning evenings on it.</p>
+
+          <div class="note warn">
+            <p><strong>The short answer:</strong> both mods ship their own compiled game libraries, and
+              GoldSrc loads exactly one set per mod folder. Whichever set you copy in last is the mod
+              you're playing. The other one is simply gone.</p>
+          </div>
+
+          <div class="toc">
+            <p>On this page</p>
+            <ol>
+              <li><a href="#why">Why the merge fails</a></li>
+              <li><a href="#campaign">Why MMod <em>is</em> compatible with other mods</a></li>
+              <li><a href="#works">Three setups that do work</a></li>
+              <li><a href="#choose">Which one should you actually play?</a></li>
+              <li><a href="#assets">What you can and can't copy across</a></li>
+            </ol>
+          </div>
+
+          <h2 id="why">Why the merge fails</h2>
+          <p>A GoldSrc mod folder can contain two kinds of thing:</p>
+          <ul>
+            <li><strong>Data</strong> — maps, models, sounds, sprites, text files. Inert. The engine
+              reads it.</li>
+            <li><strong>Code</strong> — compiled libraries in <code>dlls\</code> and
+              <code>cl_dlls\</code>. This is what defines how weapons fire, how enemies think, what the
+              HUD does, how damage works.</li>
+          </ul>
+          <p>When you launch a mod, the engine loads <strong>one</strong> server library and
+            <strong>one</strong> client library — the ones in that mod's folder. There is no mechanism
+            for chaining or layering them. Two mods that both define weapon behaviour are asking to be
+            the same single library at the same time.</p>
+          <p>So when you copy MMod's files into Brutal Half-Life's folder, you overwrite Brutal's
+            libraries with MMod's. The folder now contains Brutal's maps and models but MMod's code —
+            which is to say, it's MMod with some stray files lying around. Reverse the copy and you get
+            the mirror image. Either way one mod is gone.</p>
+          <div class="note">
+            <p>This is also why the result is often worse than either mod alone: the surviving code
+              references assets it doesn't expect and the loser's leftover files cause missing models,
+              wrong sounds, and crashes on level load.</p>
+          </div>
+
+          <div class="ad-slot">AD SLOT · ARTICLE 01</div>
+
+          <h2 id="campaign">Why MMod <em>is</em> compatible with other mods</h2>
+          <p>This is where the confusion comes from. MMod maintains a list of compatible mods and
+            campaigns, so people reasonably assume Brutal Half-Life should be on it.</p>
+          <p>The distinction is code:</p>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr><th></th><th>Campaign mods</th><th>Gameplay mods</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Contains</td><td>Maps, models, sounds</td><td>Maps, models, sounds <strong>+ compiled libraries</strong></td></tr>
+                <tr><td>Examples</td><td>Fan campaigns, level packs</td><td>Brutal Half-Life, MMod itself</td></tr>
+                <tr><td>Compatible with MMod</td><td>Yes &mdash; MMod supplies the code, the campaign supplies the levels</td><td>No &mdash; both want to supply the code</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>A campaign mod is content looking for an engine to run on, so MMod can host it happily.
+            Brutal Half-Life isn't content — it <em>is</em> an engine layer. Two of those don't stack.</p>
+          <p>The practical rule: <strong>if the mod folder has files in <code>dlls\</code>, it will not
+            combine with MMod.</strong> That single check answers the compatibility question for any
+            mod you're considering.</p>
+
+          <h2 id="works">Three setups that do work</h2>
+          <div class="fix">
+            <h3><span class="n">01</span> Both installed, switch between them</h3>
+            <p>This is what most people actually want, and it takes seconds. The two mods live in
+              separate folders and never touch each other:</p>
+            <pre><code>Steam\steamapps\common\Half-Life\
+    valve\
+    bhl_v3\        &lt;- Brutal Half-Life
+    HL1MMod\       &lt;- MMod</code></pre>
+            <p>Switch by editing Half-Life's launch options (Properties &rsaquo; General &rsaquo; Launch
+              Options) to point at the one you want:</p>
+            <pre><code>-game bhl_v3
+-game HL1MMod</code></pre>
+            <p>Nothing is reinstalled, no files are overwritten, and each mod keeps its own saves.</p>
+          </div>
+          <div class="fix">
+            <h3><span class="n">02</span> MMod plus a campaign mod</h3>
+            <p>If what you liked about Brutal was "more content", this is the productive direction.
+              MMod's compatible-campaign list covers a lot of well-regarded fan campaigns, and those
+              genuinely do run with MMod's improvements applied.</p>
+            <p>You get MMod's gameplay across new levels — which is a real combination, unlike the one
+              you were trying to build.</p>
+          </div>
+          <div class="fix">
+            <h3><span class="n">03</span> Just pick one, deliberately</h3>
+            <p>Less of a workaround than an honest recommendation. These mods pull in different
+              directions and playing each on its own terms is better than a compromise that doesn't
+              exist. See the comparison below.</p>
+          </div>
+
+          <div class="ad-slot">AD SLOT · ARTICLE 02</div>
+
+          <h2 id="choose">Which one should you actually play?</h2>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr><th>You want</th><th>Play</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Half-Life, but heavier, louder, far more violent</td><td>Brutal Half-Life</td></tr>
+                <tr><td>Half-Life as you remember it, with modern feel and polish</td><td>MMod</td></tr>
+                <tr><td>New weapons and much more ammo</td><td>Brutal Half-Life</td></tr>
+                <tr><td>Better weapon handling, iron sights, sharper combat</td><td>MMod</td></tr>
+                <tr><td>To replay fan campaigns with improvements applied</td><td>MMod</td></tr>
+                <tr><td>Your first ever replay of Half-Life</td><td>MMod &mdash; it respects the original design</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="assets">What you can and can't copy across</h2>
+          <p>People often follow up with "fine, can I at least take the weapon models?" Sometimes —
+            with an important limit.</p>
+          <ul>
+            <li><strong>Sometimes portable:</strong> models, sprites, sounds, textures. These are data,
+              and the engine will render whatever it's pointed at.</li>
+            <li><strong>Never portable:</strong> behaviour. A weapon model copied across arrives as
+              geometry only. Its firing rate, damage, reload animation timing and alt-fire all live in
+              the compiled libraries you didn't bring with it.</li>
+          </ul>
+          <p>So you can make MMod's shotgun <em>look</em> like Brutal's. You cannot make it
+            <em>act</em> like it. If that sounds unsatisfying, it's the same wall the full merge hits,
+            just at a smaller scale.</p>
+
+          <h2>Frequently asked</h2>
+          <div class="faq">
+            <details>
+              <summary>Is there a patch that makes them work together?</summary>
+              <p>No, and there structurally can't be one short of someone rewriting both mods into a
+                single codebase. Any "combined" package you find is one of the two mods with the
+                other's assets mixed in.</p>
+            </details>
+            <details>
+              <summary>Does the 25th Anniversary update affect this?</summary>
+              <p>It makes things worse but isn't the cause. The anniversary engine update broke a large
+                share of GoldSrc mods outright — if Brutal Half-Life isn't starting at all, that's a
+                separate problem with its own fix. See
+                <a href="/mods/brutal-half-life-not-working/">Brutal Half-Life won't work</a>.</p>
+            </details>
+            <details>
+              <summary>Can I have both installed without them interfering?</summary>
+              <p>Yes. Separate folders, separate saves, no interaction. Only the <code>-game</code>
+                launch option decides which one runs.</p>
+            </details>
+            <details>
+              <summary>What if I already merged them and now everything is broken?</summary>
+              <p>Delete both mod folders and reinstall each from its original archive. Your base
+                Half-Life install is untouched — mods never write into <code>valve</code>. If you did
+                extract something into <code>valve</code>, verify the game's files to repair it.</p>
+            </details>
+          </div>
+
+          <hr>
+          <p style="font-size:0.86rem;color:var(--ink-faint)">Compatibility behaviour verified against
+            MMod's own compatible-mods documentation and community reports on Steam and
+            <a href="https://www.moddb.com/mods/brutal-half-life" rel="nofollow noopener" target="_blank">ModDB</a>.
+            Both mods are actively developed — if this no longer matches,
+            <a href="/contact/">tell us</a>.</p>
+        </div>
+
+        <section class="related">
+          <h2>Related guides</h2>
+          <ul>
+            <li><a href="/mods/brutal-half-life-not-working/">Brutal Half-Life won't work — every cause and fix
+              <span class="kicker">Start here if it isn't launching at all.</span></a></li>
+            <li><a href="/mods/reshade-half-life-2/">How to use ReShade on Half-Life 2
+              <span class="kicker">Visual upgrade that touches no game files.</span></a></li>
+            <li><a href="/mods/">All Half-Life mod guides
+              <span class="kicker">Where GoldSrc and Source mods install, and why it matters.</span></a></li>
+          </ul>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-links">
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+      <p class="disclaimer">Lambda Archive is an independent fan project. It is not affiliated with,
+        endorsed by, or sponsored by Valve Corporation. Half-Life, the lambda logo, and all related
+        marks are trademarks of Valve Corporation. Brutal Half-Life and Half-Life: MMod are the work of
+        their respective authors and are not distributed from this site.</p>
+    </div>
+  </footer>
+</body>
+</html>

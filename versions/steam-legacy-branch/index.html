@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The steam_legacy Branch — Half-Life's Pre-Anniversary Builds Explained</title>
+  <meta name="description" content="What the steam_legacy beta branch is, how to switch, and exactly what you give up. Half-Life 1 and Half-Life 2 each have one — and they roll back to different things.">
+  <link rel="canonical" href="https://lambdaarchive.com/versions/steam-legacy-branch/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The steam_legacy Branch Explained">
+  <meta property="og:description" content="Half-Life's pre-anniversary build: how to switch, and what you lose by doing it.">
+  <meta property="og:url" content="https://lambdaarchive.com/versions/steam-legacy-branch/">
+  <meta property="og:site_name" content="Lambda Archive">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://lambdaarchive.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="theme-color" content="#101216">
+  <link rel="stylesheet" href="/css/base.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The steam_legacy Branch — Half-Life's Pre-Anniversary Build Explained",
+    "description": "What the steam_legacy branch is, how to switch, and what you give up.",
+    "author": { "@type": "Organization", "name": "Lambda Archive" },
+    "publisher": { "@type": "Organization", "name": "Lambda Archive" },
+    "mainEntityOfPage": "https://lambdaarchive.com/versions/steam-legacy-branch/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lambdaarchive.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Versions", "item": "https://lambdaarchive.com/versions/" },
+      { "@type": "ListItem", "position": 3, "name": "steam_legacy branch" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the steam_legacy branch in Half-Life?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It is a publicly available beta branch containing the build of Half-Life from before the 25th Anniversary update, described in Steam as the Pre-25th Anniversary Build. Valve archived it so that mods and content built against the older GoldSrc engine remain playable." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I switch Half-Life to the legacy version?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Right-click Half-Life in your Steam library, open Properties, go to the Betas tab, and select steam_legacy from the branch dropdown. Steam then downloads the older build. No beta access code is required." }
+      },
+      {
+        "@type": "Question",
+        "name": "What do I lose by switching to steam_legacy?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Everything the 25th Anniversary update added: the bundled Half-Life: Uplink mission, four new multiplayer maps, restored content and artwork, updated graphics options, controller and Steam networking support, and Steam Deck support. Valve regards the anniversary build as the definitive version going forward." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does switching branches delete my saves?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Switching branches re-downloads game files but does not remove save games. You can switch back to the default branch at any time." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap-wide">
+      <a class="brand" href="/"><span class="mark">&#955;</span> Lambda Archive</a>
+      <nav class="site-nav">
+        <a href="/mods/">Mods</a>
+        <a href="/voices/">Voice Lines</a>
+        <a href="/platforms/">Play Anywhere</a>
+        <a href="/characters/">Characters</a>
+        <a href="/about/">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <p class="crumbs"><a href="/">Home</a><span>&rsaquo;</span><a href="/versions/">Versions</a><span>&rsaquo;</span>steam_legacy branch</p>
+
+      <article class="article">
+        <h1>The steam_legacy branch — what it is and when to use it</h1>
+        <p class="article-meta"><span>Version guide</span><span>Half-Life (GoldSrc)</span><span>Updated 2026</span></p>
+
+        <div class="article-body">
+          <p>If you've been troubleshooting a Half-Life mod, you've been told to "switch to
+            steam_legacy" — usually without any explanation of what that is or what it costs you.
+            Here's both.</p>
+
+          <div class="note">
+            <p><strong>In one line:</strong> <code>steam_legacy</code> is the version of Half-Life from
+              before the 25th Anniversary update, kept available as a public beta branch so that older
+              mods still run.</p>
+          </div>
+
+          <div class="toc">
+            <p>On this page</p>
+            <ol>
+              <li><a href="#what">Why the branch exists</a></li>
+              <li><a href="#switch">How to switch</a></li>
+              <li><a href="#lose">What you give up</a></li>
+              <li><a href="#when">When it's the right call</a></li>
+              <li><a href="#hl2">Half-Life 2 has one too — and it's different</a></li>
+              <li><a href="#back">Switching back</a></li>
+            </ol>
+          </div>
+
+          <h2 id="what">Why the branch exists</h2>
+          <p>The 25th Anniversary update, released in November 2023, rebuilt significant parts of the
+            GoldSrc engine. That was good for the game and bad for a mod scene with a quarter-century
+            of accumulated work built against the old engine — a large share of mods and the official
+            expansion packs stopped running correctly.</p>
+          <p>Rather than leave that content stranded, Valve archived the previous build as a publicly
+            visible beta branch labelled <strong>Pre-25th Anniversary Build</strong>. Anyone can select
+            it, no access code needed.</p>
+          <p>It's an escape hatch, not a supported alternative. Valve has stated that it considers the
+            anniversary build the definitive version and the one it will continue to support.</p>
+
+          <div class="ad-slot">AD SLOT · ARTICLE 01</div>
+
+          <h2 id="switch">How to switch</h2>
+          <div class="fix">
+            <h3><span class="n">01</span> Open the game's properties</h3>
+            <p>Right-click <strong>Half-Life</strong> in your Steam library and choose
+              <strong>Properties</strong>.</p>
+          </div>
+          <div class="fix">
+            <h3><span class="n">02</span> Select the branch</h3>
+            <p>Open the <strong>Betas</strong> tab. In the branch dropdown, choose
+              <strong>steam_legacy</strong>. You don't need a beta access code — leave that field
+              empty.</p>
+          </div>
+          <div class="fix">
+            <h3><span class="n">03</span> Let it download</h3>
+            <p>Close the properties window. Steam replaces your game files with the older build. This
+              is a substantial download, not a small patch, and it takes as long as reinstalling.</p>
+            <p>When it finishes, launch your mod. If the engine version was the problem, it will now
+              work.</p>
+          </div>
+          <div class="note ok">
+            <p><strong>Your saves are safe.</strong> Switching branches changes game files, not save
+              games. Nothing you've played is lost either direction.</p>
+          </div>
+
+          <h2 id="lose">What you give up</h2>
+          <p>This is the part the "just use steam_legacy" advice always omits. The anniversary update
+            wasn't only engine changes — it added real content, and rolling back removes all of it:</p>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr><th>Added by the 25th Anniversary update</th><th>On steam_legacy</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Half-Life: Uplink</strong> — the 1999 bonus mission, now bundled</td><td>Gone</td></tr>
+                <tr><td><strong>Four new multiplayer maps</strong> — Contamination, Pool Party, Disposal, Rocket Frenzy</td><td>Gone</td></tr>
+                <tr><td><strong>Restored content</strong> from the 1999 Further Data expansion</td><td>Gone</td></tr>
+                <tr><td><strong>Prototype player models and original menu artwork</strong></td><td>Gone</td></tr>
+                <tr><td><strong>Updated graphics options</strong></td><td>Gone</td></tr>
+                <tr><td><strong>Controller support and Steam networking</strong></td><td>Gone</td></tr>
+                <tr><td><strong>Steam Deck support</strong></td><td>Gone</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Multiplayer is the sharpest edge here. You're on a different build from most of the player
+            base, and the four new maps don't exist for you.</p>
+
+          <h2 id="when">When it's the right call</h2>
+          <p><strong>Switch if:</strong></p>
+          <ul>
+            <li>A mod you specifically want to play doesn't run on the current build, <em>and</em> it
+              has no compatibility patch.</li>
+            <li>You're replaying an official expansion pack that's misbehaving.</li>
+            <li>You're playing single-player and don't care about the anniversary additions.</li>
+          </ul>
+          <p><strong>Don't switch if:</strong></p>
+          <ul>
+            <li>You haven't checked whether the mod released a compatibility patch. Many actively
+              maintained ones did, and a patch is strictly better — it leaves your install current.</li>
+            <li>Your problem isn't actually the engine. A mod that's missing from your library or
+              crashing at map load usually has a different cause — see
+              <a href="/mods/brutal-half-life-not-working/">the five-cause troubleshooting order</a>.</li>
+            <li>You play multiplayer regularly.</li>
+          </ul>
+          <div class="note warn">
+            <p><strong>Check for a patch first.</strong> Rolling back the whole game to run one mod is
+              the blunt instrument. A mod-side compatibility patch solves the same problem without
+              giving up anything, and takes a minute to look for on the mod's ModDB page.</p>
+          </div>
+
+          <div class="ad-slot">AD SLOT · ARTICLE 02</div>
+
+          <h2 id="hl2">Half-Life 2 has one too — and it's different</h2>
+          <p>This catches people out, because the branch has the same name in both games and rolls back
+            to entirely different things.</p>
+          <p>A year after Half-Life's anniversary update, Half-Life 2 got its own — the
+            <strong>20th Anniversary Update</strong> of 16 November 2024, which added Steam Workshop
+            support, developer commentary, graphics options and bug fixes, and folded Episode One,
+            Episode Two and Lost Coast into Half-Life 2's own menu. Valve archived the previous build
+            the same way.</p>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr><th></th><th>Half-Life</th><th>Half-Life 2</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Branch name</td><td><code>steam_legacy</code></td><td><code>steam_legacy</code> — same name</td></tr>
+                <tr><td>Steam description</td><td>Pre-<strong>25th</strong> Anniversary Build</td><td>Pre-<strong>20th</strong> Anniversary Build</td></tr>
+                <tr><td>Rolls back</td><td>November 2023 update</td><td>November 2024 update</td></tr>
+                <tr><td>Engine</td><td>GoldSrc</td><td>Source</td></tr>
+                <tr><td>Main reason to use it</td><td>Pre-anniversary GoldSrc mods</td><td>Source mods broken by the 2024 update</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note warn">
+            <p><strong>Setting one does nothing for the other.</strong> They're separate Steam products
+              with separate Betas tabs. If a Half-Life 2 mod is broken, switching Half-Life 1 to
+              <code>steam_legacy</code> changes nothing at all — a surprisingly common wasted download.</p>
+          </div>
+          <p>The same advice applies in both cases: look for an updated version of the mod first, and
+            treat the rollback as the fallback. For what Half-Life 2's update added, see
+            <a href="/mods/half-life-2-workshop/">the Half-Life 2 Workshop guide</a>.</p>
+
+          <h2 id="back">Switching back</h2>
+          <p>Same path, opposite direction: <strong>Properties &rsaquo; Betas</strong>, then select
+            <strong>None</strong> from the dropdown. Steam re-downloads the current build.</p>
+          <p>There's no penalty and no limit on how often you switch, so treating it as a temporary
+            mode for a specific mod is perfectly reasonable. The only real cost is bandwidth and the
+            time each download takes.</p>
+
+          <h2>Frequently asked</h2>
+          <div class="faq">
+            <details>
+              <summary>Do I need a beta access code?</summary>
+              <p>No. <code>steam_legacy</code> is a public branch — select it from the dropdown and
+                leave the code field empty.</p>
+            </details>
+            <details>
+              <summary>Is Half-Life 2's steam_legacy the same branch?</summary>
+              <p>No. Same name, different game, different rollback. Half-Life's is the Pre-25th
+                Anniversary Build (November 2023); Half-Life 2's is the Pre-20th Anniversary Build
+                (November 2024). Each is set independently on its own product.</p>
+            </details>
+            <details>
+              <summary>Do the expansion packs have their own legacy branches?</summary>
+              <p>Opposing Force and Blue Shift are separate Steam products with their own Betas tabs.
+                Check each one individually rather than assuming the base game's setting carries over.</p>
+            </details>
+            <details>
+              <summary>Will my mods break when I switch back?</summary>
+              <p>Mods that only work on the legacy engine will stop working again on the current build —
+                that's the same incompatibility, not new damage. The mod files themselves are untouched.</p>
+            </details>
+            <details>
+              <summary>Is steam_legacy going away?</summary>
+              <p>Valve hasn't announced an end date. It's an archival branch rather than a maintained
+                one, so it receives no updates — but it also has no announced removal.</p>
+            </details>
+            <details>
+              <summary>Does this work on Steam Deck or Linux?</summary>
+              <p>The branch selector works the same everywhere. Note that Steam Deck support was one of
+                the anniversary additions, so the legacy build is a worse fit for that hardware
+                specifically.</p>
+            </details>
+          </div>
+
+          <hr>
+          <p style="font-size:0.86rem;color:var(--ink-faint)">Update contents confirmed against Valve's
+            25th Anniversary announcement and contemporaneous reporting from
+            <a href="https://www.engadget.com/half-lifes-big-25th-anniversary-update-includes-four-new-multiplayer-maps-and-much-more-193932590.html" rel="nofollow noopener" target="_blank">Engadget</a>
+            and <a href="https://www.gamespot.com/articles/half-life-gets-25th-anniversary-update-and-steam-deck-support/1100-6519285/" rel="nofollow noopener" target="_blank">GameSpot</a>.
+            Branch availability can change — <a href="/contact/">tell us</a> if this drifts.</p>
+        </div>
+
+        <section class="related">
+          <h2>Related guides</h2>
+          <ul>
+            <li><a href="/mods/brutal-half-life-not-working/">Brutal Half-Life won't work — every cause and fix
+              <span class="kicker">Check these five before rolling back the engine.</span></a></li>
+            <li><a href="/versions/goty-edition-differences/">Game of the Year Edition vs the original
+              <span class="kicker">Why the anniversary build beats every 1999 box.</span></a></li>
+            <li><a href="/mods/">All Half-Life mod guides
+              <span class="kicker">Which mods survived the update, and which didn't.</span></a></li>
+          </ul>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-links">
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+      <p class="disclaimer">Lambda Archive is an independent fan project. It is not affiliated with,
+        endorsed by, or sponsored by Valve Corporation. Half-Life, the lambda logo, and all related
+        marks are trademarks of Valve Corporation.</p>
+    </div>
+  </footer>
+</body>
+</html>
