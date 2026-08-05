@@ -126,6 +126,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://lambdaarchive.com/platforms/valve-games-on-switch/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lambdaarchive.com/characters/headcrabs/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lambdaarchive.com/is-half-life-a-boomer-shooter/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lambdaarchive.com/about/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
