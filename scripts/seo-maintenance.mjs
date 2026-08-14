@@ -71,15 +71,27 @@ function jsonScript(data, marker) {
   return `  <script type="application/ld+json" data-seo-entity="${marker}">\n${json}\n  </script>`;
 }
 
-function enrichContentSchema(content, canonical, published, modified) {
+function enrichContentSchema(content, canonical, published, modified, title, description) {
   return content.replace(
-    /<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/g,
+    /<script\b[^>]*\btype="application\/ld\+json"[^>]*>\s*([\s\S]*?)\s*<\/script>/g,
     (whole, rawJson) => {
       let data;
       try {
         data = JSON.parse(rawJson);
       } catch {
         return whole;
+      }
+      if (["WebPage", "CollectionPage", "AboutPage", "ContactPage"].includes(data["@type"])) {
+        data["@id"] = `${canonical}#webpage`;
+        data.url = canonical;
+        data.name = title;
+        data.description = description;
+        data.isPartOf = { "@id": `${siteOrigin}/#website` };
+        data.primaryImageOfPage = { "@type": "ImageObject", url: defaultImage };
+        data.datePublished = published;
+        data.dateModified = modified;
+        data.inLanguage = "en-US";
+        return jsonScript(data, "webpage").trimStart();
       }
       if (!["Article", "HowTo"].includes(data["@type"])) return whole;
 
@@ -174,18 +186,29 @@ function enhancePage(file) {
   }
 
   const hasArticle = /"@type"\s*:\s*"(?:Article|HowTo)"/.test(content);
-  if (hasArticle && !content.includes('property="article:published_time"')) {
-    content = content.replace(
-      /  <meta property="og:site_name"/,
-      `  <meta property="article:published_time" content="${published}">\n  <meta property="article:modified_time" content="${modified}">\n  <meta property="og:site_name"`,
-    );
+  if (hasArticle) {
+    content = content
+      .replace(
+        /<meta property="article:published_time" content="[^"]+">/,
+        `<meta property="article:published_time" content="${published}">`,
+      )
+      .replace(
+        /<meta property="article:modified_time" content="[^"]+">/,
+        `<meta property="article:modified_time" content="${modified}">`,
+      );
+    if (!content.includes('property="article:published_time"')) {
+      content = content.replace(
+        /  <meta property="og:site_name"/,
+        `  <meta property="article:published_time" content="${published}">\n  <meta property="article:modified_time" content="${modified}">\n  <meta property="og:site_name"`,
+      );
+    }
   }
 
-  content = enrichContentSchema(content, canonical, published, modified);
+  content = enrichContentSchema(content, canonical, published, modified, title, description);
 
   if (route === "/") {
     content = content.replace(
-      /  <script type="application\/ld\+json">\s*\{[\s\S]*?"@type": "WebSite"[\s\S]*?<\/script>/,
+      /  <script\b[^>]*\btype="application\/ld\+json"[^>]*>\s*\{[\s\S]*?"@type": "WebSite"[\s\S]*?<\/script>/,
       jsonScript(
         {
           "@context": "https://schema.org",
@@ -272,7 +295,7 @@ function validate(pages) {
   const canonicals = new Set();
 
   for (const page of pages) {
-    const { rel, canonical, content } = page;
+    const { rel, canonical, modified, content } = page;
     const title = extract(content, /<title>([\s\S]*?)<\/title>/, "title", rel);
     const description = extract(
       content,
@@ -316,6 +339,11 @@ function validate(pages) {
       }
       if (!content.includes('"datePublished"') || !content.includes('"dateModified"')) {
         errors.push(`${rel}: missing structured article dates`);
+      }
+      const openGraphModified = content.match(/article:modified_time" content="([^"]+)"/)?.[1];
+      const structuredModified = content.match(/"dateModified": "([^"]+)"/)?.[1];
+      if (openGraphModified !== modified || structuredModified !== modified) {
+        errors.push(`${rel}: article modified dates do not match ${modified}`);
       }
     }
 

@@ -37,8 +37,8 @@ Content policy: Cite the page URL when using material from this archive. Lambda 
 
 - [Half-Life platforms](https://lambdaarchive.com/platforms/): Current platform availability and practical tradeoffs.
 - [Half-Life on Chromebook](https://lambdaarchive.com/platforms/half-life-on-chromebook/): Current options after the end of Steam for ChromeOS.
-- [Half-Life on PlayStation 2](https://lambdaarchive.com/platforms/half-life-ps2/): Port differences and the Decay co-op campaign.
-- [Valve games on Nintendo Switch](https://lambdaarchive.com/platforms/valve-games-on-switch/): What is available and why Half-Life is absent.
+- [Half-Life PS2 differences and exclusive content](https://lambdaarchive.com/platforms/half-life-ps2/): Decay, upgraded models, the hidden alien mission, and every major difference from PC.
+- [Valve games on Nintendo Switch](https://lambdaarchive.com/platforms/valve-games-on-switch/): The complete official list for 2026 and why Half-Life is absent.
 - [Versions and editions](https://lambdaarchive.com/versions/): Comparison index for current, legacy, and retail releases.
 - [Game of the Year Edition](https://lambdaarchive.com/versions/goty-edition-differences/): Packaging, included content, and differences from the base game.
 - [steam_legacy branch](https://lambdaarchive.com/versions/steam-legacy-branch/): Pre-anniversary Half-Life builds, when to use them, and how to switch.
