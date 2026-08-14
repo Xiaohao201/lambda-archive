@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+# Search engines and AI answer engines may crawl the public archive.
 Sitemap: https://lambdaarchive.com/sitemap.xml

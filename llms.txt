@@ -1,0 +1,58 @@
+# Lambda Archive
+
+> An independent, fan-run reference for Half-Life and Half-Life 2. The archive publishes tested mod setup and troubleshooting guides, searchable NPC voice-line transcripts, version and platform comparisons, and fact-checked character references.
+
+Canonical site: https://lambdaarchive.com/
+Language: English (en-US)
+Publisher: Lambda Archive
+Content policy: Cite the page URL when using material from this archive. Lambda Archive is not affiliated with Valve Corporation and does not host game files or mods.
+
+## Start here
+
+- [Home](https://lambdaarchive.com/): Overview of every topic covered by the archive.
+- [About and editorial method](https://lambdaarchive.com/about/): Scope, source-checking method, corrections policy, independence, and funding disclosure.
+- [XML sitemap](https://lambdaarchive.com/sitemap.xml): Complete canonical URL inventory with last-modified dates.
+
+## Mod setup and troubleshooting
+
+- [Half-Life mods](https://lambdaarchive.com/mods/): Index covering GoldSrc and Source mod formats, install locations, compatibility, and troubleshooting.
+- [Install any GoldSrc mod](https://lambdaarchive.com/mods/install-goldsrc-mods/): Folder layout, liblist.gam, launch methods, engine compatibility, and removal.
+- [Brutal Half-Life will not launch](https://lambdaarchive.com/mods/brutal-half-life-not-working/): Causes and fixes for library detection, folders, engine versions, and dependencies.
+- [Half-Life MMod with Brutal Half-Life](https://lambdaarchive.com/mods/brutal-half-life-mmod/): Compatibility limits and working installation choices.
+- [ReShade on Half-Life 2](https://lambdaarchive.com/mods/reshade-half-life-2/): Renderer selection, installation, presets, HUD issues, and removal.
+- [Half-Life 2 Workshop](https://lambdaarchive.com/mods/half-life-2-workshop/): Workshop capabilities, addon types, limits, and manual alternatives.
+- [Cat-Life](https://lambdaarchive.com/mods/cat-life/): What the mod is, where to obtain it, installation, and common launch issues.
+- [Half-Life: Insecure](https://lambdaarchive.com/mods/half-life-insecure/): Premise, status, installation, and compatibility.
+- [Games that began as Half-Life 2 mods](https://lambdaarchive.com/mods/best-half-life-2-mod-games/): Garry's Mod, The Stanley Parable, Dear Esther, and Black Mesa.
+
+## Voice-line transcripts
+
+- [Voice-line archive](https://lambdaarchive.com/voices/): Searchable transcript index with speaker and trigger context.
+- [Metropolice](https://lambdaarchive.com/voices/metropolice/): Civil Protection radio codes and lines grouped by situation.
+- [City 17 citizens](https://lambdaarchive.com/voices/citizens/): Citizen voice actors, model naming, and dialogue grouped by context.
+- [HECU human grunts](https://lambdaarchive.com/voices/human-grunts/): Half-Life marine lines grouped by combat and radio trigger.
+- [Black Mesa scientists](https://lambdaarchive.com/voices/scientists/): Scientist quotes grouped by situation and voice set.
+
+## Platforms and versions
+
+- [Half-Life platforms](https://lambdaarchive.com/platforms/): Current platform availability and practical tradeoffs.
+- [Half-Life on Chromebook](https://lambdaarchive.com/platforms/half-life-on-chromebook/): Current options after the end of Steam for ChromeOS.
+- [Half-Life on PlayStation 2](https://lambdaarchive.com/platforms/half-life-ps2/): Port differences and the Decay co-op campaign.
+- [Valve games on Nintendo Switch](https://lambdaarchive.com/platforms/valve-games-on-switch/): What is available and why Half-Life is absent.
+- [Versions and editions](https://lambdaarchive.com/versions/): Comparison index for current, legacy, and retail releases.
+- [Game of the Year Edition](https://lambdaarchive.com/versions/goty-edition-differences/): Packaging, included content, and differences from the base game.
+- [steam_legacy branch](https://lambdaarchive.com/versions/steam-legacy-branch/): Pre-anniversary Half-Life builds, when to use them, and how to switch.
+
+## Characters, lore, and explainers
+
+- [Half-Life characters](https://lambdaarchive.com/characters/): Character reference index separating confirmed facts from theory.
+- [The G-Man](https://lambdaarchive.com/characters/g-man/): Confirmed appearances, abilities, employers, and unresolved questions.
+- [Headcrabs](https://lambdaarchive.com/characters/headcrabs/): Every major variant and the zombie type each creates.
+- [Why Half-Life 1 is hard](https://lambdaarchive.com/why-half-life-1-is-hard/): Design differences from modern shooters and practical ways through them.
+- [Is Half-Life a boomer shooter?](https://lambdaarchive.com/is-half-life-a-boomer-shooter/): Genre history and a criteria-based answer.
+- [The lambda symbol](https://lambdaarchive.com/resources/): The logo's scientific meaning and its use throughout the games.
+
+## Policies and contact
+
+- [Contact and corrections](https://lambdaarchive.com/contact/)
+- [Privacy policy](https://lambdaarchive.com/privacy/)

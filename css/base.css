@@ -148,7 +148,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2.5em 0; }
   transform: translateY(-2px);
 }
 .card .emoji { font-size: 1.5rem; line-height: 1; margin-bottom: 10px; }
-.card h3 { margin: 0 0 6px; font-size: 1.03rem; color: var(--ink); }
+.card h2, .card h3 { margin: 0 0 6px; font-size: 1.03rem; color: var(--ink); }
 .card p { margin: 0; font-size: 0.9rem; color: var(--ink-faint); line-height: 1.5; }
 .card .count {
   display: inline-block;
