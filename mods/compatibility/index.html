@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GoldSrc Mod Compatibility Database | Lambda Archive</title>
+  <meta name="description" content="Checked Half-Life GoldSrc mod compatibility for the current Steam build and steam_legacy, with releases, install folders, known issues and sources.">
+  <link rel="canonical" href="https://lambdaarchive.com/mods/compatibility/">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="GoldSrc Mod Compatibility Database">
+  <meta property="og:description" content="Which Half-Life mods work on the current Steam build, which need steam_legacy, and what to install.">
+  <meta property="og:url" content="https://lambdaarchive.com/mods/compatibility/">
+  <meta property="og:site_name" content="Lambda Archive">
+  <meta property="og:image" content="https://lambdaarchive.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="theme-color" content="#101216">
+  <link rel="stylesheet" href="/css/base.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "GoldSrc Mod Compatibility Database",
+    "description": "Checked compatibility notes for Half-Life GoldSrc mods on the current Steam and steam_legacy builds.",
+    "url": "https://lambdaarchive.com/mods/compatibility/",
+    "dateModified": "2026-08-19",
+    "creator": { "@type": "Organization", "name": "Lambda Archive", "url": "https://lambdaarchive.com/" },
+    "isAccessibleForFree": true,
+    "keywords": ["Half-Life mods", "GoldSrc", "steam_legacy", "25th Anniversary update"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lambdaarchive.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Mods", "item": "https://lambdaarchive.com/mods/" },
+      { "@type": "ListItem", "position": 3, "name": "Compatibility database" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap-wide">
+      <a class="brand" href="/"><span class="mark">&#955;</span> Lambda Archive</a>
+      <nav class="site-nav">
+        <a href="/mods/" aria-current="page">Mods</a>
+        <a href="/voices/">Voice Lines</a>
+        <a href="/platforms/">Play Anywhere</a>
+        <a href="/characters/">Characters</a>
+        <a href="/about/">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap-wide compatibility-wrap">
+      <p class="crumbs"><a href="/">Home</a><span>&rsaquo;</span><a href="/mods/">Mods</a><span>&rsaquo;</span>Compatibility</p>
+      <article class="article">
+        <h1>GoldSrc mod compatibility database</h1>
+        <p class="article-meta"><span>Compatibility reference</span><span>3 checked entries</span><span>Verified 19 August 2026</span></p>
+
+        <div class="article-body">
+          <p>This table answers one narrow question: <strong>which Half-Life Steam build should you use for a given GoldSrc mod?</strong> Every row links to the author's own release page. An unknown cell means the author has not documented the behaviour clearly enough for us to claim an answer.</p>
+
+          <div class="note ok">
+            <p><strong>Do not switch every mod to <code>steam_legacy</code> by default.</strong> Newer projects may target the current Anniversary build, while old unmaintained releases may genuinely need the archived engine. Follow the row for the specific mod.</p>
+          </div>
+
+          <div class="compatibility-controls" aria-label="Filter compatibility database">
+            <label for="mod-search">Find a mod</label>
+            <input id="mod-search" type="search" placeholder="Search by name, version or note" autocomplete="off">
+            <label for="build-filter">Steam build</label>
+            <select id="build-filter">
+              <option value="all">All entries</option>
+              <option value="current">Current build supported</option>
+              <option value="legacy">Legacy supported</option>
+              <option value="unknown">Unverified</option>
+            </select>
+          </div>
+          <p class="compatibility-count" id="compatibility-count" aria-live="polite">Showing 3 of 3 entries</p>
+
+          <div class="table-scroll">
+            <table class="compatibility-table">
+              <thead>
+                <tr>
+                  <th scope="col">Mod</th>
+                  <th scope="col">Release</th>
+                  <th scope="col">Current Steam build</th>
+                  <th scope="col"><code>steam_legacy</code></th>
+                  <th scope="col">Install folder</th>
+                  <th scope="col">Known note</th>
+                  <th scope="col">Checked</th>
+                </tr>
+              </thead>
+              <tbody id="compatibility-rows">
+                <tr data-build="current" data-search="brutal half-life bhl v3 anniversary current steam">
+                  <th scope="row"><a href="/mods/brutal-half-life-not-working/">Brutal Half-Life</a></th>
+                  <td>v3</td>
+                  <td><span class="compat-status status-supported">Supported</span></td>
+                  <td><span class="compat-status status-neutral">Not required</span></td>
+                  <td><code>bhl_v3</code></td>
+                  <td>The author states that v3 works on the latest 25th Anniversary Steam version. Use the official v3 release, not an older beta.</td>
+                  <td><time datetime="2026-08-19">19 Aug 2026</time></td>
+                </tr>
+                <tr data-build="current legacy" data-search="half-life insecure version 1.5 current steam legacy linux">
+                  <th scope="row"><a href="/mods/half-life-insecure/">Half-Life: Insecure</a></th>
+                  <td>1.5</td>
+                  <td><span class="compat-status status-supported">Recommended</span></td>
+                  <td><span class="compat-status status-partial">Partial</span></td>
+                  <td>Folder supplied by archive</td>
+                  <td>The author recommends the latest Steam build. Community testing reports legacy menu/background and high-resolution HUD problems.</td>
+                  <td><time datetime="2026-08-19">19 Aug 2026</time></td>
+                </tr>
+                <tr data-build="unknown" data-search="cat-life cat life gs demo 2009 inactive unknown unverified">
+                  <th scope="row"><a href="/mods/cat-life/">Cat-Life: GS</a></th>
+                  <td>2009 demo</td>
+                  <td><span class="compat-status status-neutral">Unverified</span></td>
+                  <td><span class="compat-status status-neutral">Unverified</span></td>
+                  <td>Folder supplied by archive</td>
+                  <td>The official page calls this demo grossly outdated. The project reported no active team in 2024; no current-build compatibility claim is published.</td>
+                  <td><time datetime="2026-08-19">19 Aug 2026</time></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p id="compatibility-empty" class="compatibility-empty" hidden>No entries match those filters.</p>
+
+          <div class="ad-slot">AD SLOT &middot; COMPATIBILITY 01</div>
+
+          <h2>What the labels mean</h2>
+          <ul>
+            <li><strong>Supported or recommended:</strong> the author explicitly targets that build or recommends using it.</li>
+            <li><strong>Partial:</strong> the mod can run, but a documented feature, interface element or common configuration is broken.</li>
+            <li><strong>Unverified:</strong> no sufficiently reliable current statement was found. It does not mean incompatible.</li>
+          </ul>
+
+          <h2>How entries are checked</h2>
+          <p>Author posts, release descriptions and maintainer replies are used before community reports. A community workaround is labelled as such. Comments saying only that a mod "works for me" are not enough to mark a whole build supported.</p>
+          <p>Sources checked for this release: the official ModDB pages for <a href="https://www.moddb.com/mods/brutal-half-life" rel="noopener noreferrer" target="_blank">Brutal Half-Life</a>, <a href="https://www.moddb.com/mods/half-life-insecure" rel="noopener noreferrer" target="_blank">Half-Life: Insecure</a>, and <a href="https://www.moddb.com/mods/cat-life" rel="noopener noreferrer" target="_blank">Cat-Life: GS</a>.</p>
+
+          <h2>Before blaming compatibility</h2>
+          <p>A correct build cannot rescue a broken folder structure. GoldSrc mods belong directly inside the Half-Life directory, beside <code>valve</code>, and <code>liblist.gam</code> must sit at the top level of the mod folder. See <a href="/mods/install-goldsrc-mods/">the GoldSrc installation guide</a> before changing branches.</p>
+
+          <div class="note warn">
+            <p><strong>Found a correction?</strong> Include the mod version, Steam branch, operating system and a link to the author's statement or release notes. Send it through the <a href="/contact/">contact page</a>; compatibility claims are changed only when they can be checked.</p>
+          </div>
+        </div>
+
+        <section class="related">
+          <h2>Related pages</h2>
+          <ul>
+            <li><a href="/mods/install-goldsrc-mods/">Install any GoldSrc mod correctly<span class="kicker">Folder structure, liblist.gam and launch methods.</span></a></li>
+            <li><a href="/versions/steam-legacy-branch/">What the steam_legacy branch changes<span class="kicker">What you gain, what you lose, and how to switch back.</span></a></li>
+          </ul>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-links"><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a><a href="/sitemap.xml">Sitemap</a></div>
+      <p class="disclaimer">Lambda Archive is an independent fan project. It is not affiliated with, endorsed by, or sponsored by Valve Corporation. Mods referenced here remain the work of their respective authors and are not distributed from this site.</p>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const search = document.querySelector('#mod-search');
+      const filter = document.querySelector('#build-filter');
+      const rows = [...document.querySelectorAll('#compatibility-rows tr')];
+      const count = document.querySelector('#compatibility-count');
+      const empty = document.querySelector('#compatibility-empty');
+      const update = () => {
+        const query = search.value.trim().toLowerCase();
+        const build = filter.value;
+        let visible = 0;
+        rows.forEach((row) => {
+          const matchesText = !query || `${row.dataset.search} ${row.textContent}`.toLowerCase().includes(query);
+          const matchesBuild = build === 'all' || row.dataset.build.split(' ').includes(build);
+          row.hidden = !(matchesText && matchesBuild);
+          if (!row.hidden) visible += 1;
+        });
+        count.textContent = `Showing ${visible} of ${rows.length} entries`;
+        empty.hidden = visible !== 0;
+      };
+      search.addEventListener('input', update);
+      filter.addEventListener('change', update);
+    })();
+  </script>
+</body>
+</html>

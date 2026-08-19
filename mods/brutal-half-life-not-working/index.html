@@ -95,7 +95,7 @@
       {
         "@type": "Question",
         "name": "Does Brutal Half-Life work with the Half-Life 25th Anniversary update?",
-        "acceptedAnswer": { "@type": "Answer", "text": "The 25th Anniversary update broke compatibility with a large number of GoldSrc mods. For Brutal Half-Life the recommended fix is to install the 25th Anniversary Patch released on the mod's ModDB page. If that does not resolve it, Valve keeps the older engine available as a public beta branch called steam_legacy." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The author states that Brutal Half-Life v3 works on the latest Half-Life 25th Anniversary Steam version. Install the official v3 full release rather than an older beta. steam_legacy is not required for v3." }
       },
       {
         "@type": "Question",
@@ -181,7 +181,7 @@
           <div class="toc">
             <p>Check in this order</p>
             <ol>
-              <li><a href="#engine">You're on the 25th Anniversary engine without the patch</a></li>
+              <li><a href="#engine">You installed an older beta instead of v3</a></li>
               <li><a href="#launch">You're looking for it in the Steam library</a></li>
               <li><a href="#folder">The folder name or nesting is wrong</a></li>
               <li><a href="#antivirus">Antivirus quarantined the mod's libraries</a></li>
@@ -190,27 +190,19 @@
           </div>
 
           <div class="fix" id="engine">
-            <h3><span class="n">01</span> The 25th Anniversary engine, without the patch</h3>
-            <p>Half-Life's 25th Anniversary update rebuilt substantial parts of the GoldSrc engine and
-              broke compatibility with a large share of existing mods and the official expansion packs.
-              This is a known, acknowledged issue rather than anything wrong with your machine.</p>
-            <p>There are two fixes, and you should try them in this order:</p>
-            <ol>
-              <li><strong>Install the 25th Anniversary Patch.</strong> The mod's authors released a
-                compatibility patch specifically for this, available as an add-on on the
-                <a href="https://www.moddb.com/mods/brutal-half-life" rel="noopener noreferrer" target="_blank">Brutal Half-Life ModDB page</a>.
-                Apply it over an existing v3 install. This is the better option because it leaves the
-                rest of your Half-Life installation on the current build.</li>
-              <li><strong>Fall back to the legacy engine.</strong> If the patch doesn't resolve it,
-                Valve archived the pre-update engine as a public beta branch. Right-click
-                <strong>Half-Life</strong> in your Steam library &rsaquo; <strong>Properties</strong>
-                &rsaquo; <strong>Betas</strong>, then pick <strong>steam_legacy</strong> ("Pre-25th
-                Anniversary Build") from the branch dropdown and let it download.</li>
-            </ol>
+            <h3><span class="n">01</span> You installed an older beta instead of v3</h3>
+            <p>The current official release is <strong>Brutal Half-Life v3</strong>. Its author states
+              that v3 works on the latest Half-Life 25th Anniversary Steam version, so the default
+              Steam build is the correct place to start.</p>
+            <p>Download the v3 full release from the
+              <a href="https://www.moddb.com/mods/brutal-half-life" rel="noopener noreferrer" target="_blank">official Brutal Half-Life ModDB page</a>.
+              Do not assume an old beta or an unofficial community patch has the same compatibility.
+              If a clean v3 install still fails, check the launch option and folder structure below
+              before changing Half-Life branches.</p>
             <div class="note">
-              <p><strong>Note:</strong> switching branches re-downloads a large part of the game and is
-                not instant. It does not touch your saves, and you can switch back to the default
-                branch whenever you want the anniversary features for base Half-Life.</p>
+              <p><strong>steam_legacy is not required for v3.</strong> It remains useful for older
+                GoldSrc mods, but switching branches here can introduce a second variable without
+                fixing an incorrect <code>-game</code> option or nested folder.</p>
             </div>
           </div>
 
@@ -308,7 +300,7 @@
               <tbody>
                 <tr><td>Mod is nowhere in the Steam library</td><td>Expected — launch it with <code>-game bhl_v3</code> (02)</td></tr>
                 <tr><td>Half-Life starts, but as the normal game</td><td>Launch option missing, or folder name mismatch (02, 03)</td></tr>
-                <tr><td>Black screen on launch, then closes</td><td>Engine version — patch or steam_legacy (01)</td></tr>
+                <tr><td>Black screen on launch, then closes</td><td>Old beta, incomplete v3 install, or quarantined DLL (01, 04)</td></tr>
                 <tr><td>Menu loads, crashes when a map starts</td><td>Antivirus removed the libraries (04)</td></tr>
                 <tr><td>"Could not load library" style error</td><td>Antivirus (04), or an incomplete extraction</td></tr>
                 <tr><td>Runs, but textures are missing or pink</td><td>Extraction dropped files &mdash; re-extract the full archive</td></tr>
@@ -326,9 +318,9 @@
             </details>
             <details>
               <summary>Does it work with the 25th Anniversary update?</summary>
-              <p>With the mod's 25th Anniversary Patch applied, yes for most people. Without it, the
-                anniversary engine breaks a large share of GoldSrc mods. If the patch doesn't do it,
-                switch Half-Life to the <code>steam_legacy</code> beta branch.</p>
+              <p>Yes. The author states that the official v3 release works on the latest Anniversary
+                Steam version. Install v3 and use the default branch; do not add an unofficial patch
+                unless you need the specific changes that patch documents.</p>
             </details>
             <details>
               <summary>Can I run Brutal Half-Life and Half-Life MMod at the same time?</summary>
