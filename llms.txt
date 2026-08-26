@@ -16,6 +16,7 @@ Content policy: Cite the page URL when using material from this archive. Lambda 
 ## Mod setup and troubleshooting
 
 - [Half-Life mods](https://lambdaarchive.com/mods/): Index covering GoldSrc and Source mod formats, install locations, compatibility, and troubleshooting.
+- [GoldSrc mod compatibility database](https://lambdaarchive.com/mods/compatibility/): Checked current-Steam and steam_legacy support, release versions, install folders, known issues, and source links.
 - [Install any GoldSrc mod](https://lambdaarchive.com/mods/install-goldsrc-mods/): Folder layout, liblist.gam, launch methods, engine compatibility, and removal.
 - [Brutal Half-Life will not launch](https://lambdaarchive.com/mods/brutal-half-life-not-working/): Causes and fixes for library detection, folders, engine versions, and dependencies.
 - [Half-Life MMod with Brutal Half-Life](https://lambdaarchive.com/mods/brutal-half-life-mmod/): Compatibility limits and working installation choices.
@@ -37,7 +38,7 @@ Content policy: Cite the page URL when using material from this archive. Lambda 
 
 - [Half-Life platforms](https://lambdaarchive.com/platforms/): Current platform availability and practical tradeoffs.
 - [Half-Life on Chromebook](https://lambdaarchive.com/platforms/half-life-on-chromebook/): Current options after the end of Steam for ChromeOS.
-- [Half-Life PS2 differences and exclusive content](https://lambdaarchive.com/platforms/half-life-ps2/): Decay, upgraded models, the hidden alien mission, and every major difference from PC.
+- [Half-Life on PS2](https://lambdaarchive.com/platforms/half-life-ps2/): Port differences, Decay, upgraded models, the hidden alien mission, and why Half-Life 2 was never released for PS2.
 - [Valve games on Nintendo Switch](https://lambdaarchive.com/platforms/valve-games-on-switch/): The complete official list for 2026 and why Half-Life is absent.
 - [Versions and editions](https://lambdaarchive.com/versions/): Comparison index for current, legacy, and retail releases.
 - [Game of the Year Edition](https://lambdaarchive.com/versions/goty-edition-differences/): Packaging, included content, and differences from the base game.

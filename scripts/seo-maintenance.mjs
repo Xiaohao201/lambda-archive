@@ -7,6 +7,7 @@ const apply = process.argv.includes("--apply");
 const siteOrigin = "https://lambdaarchive.com";
 const siteName = "Lambda Archive";
 const defaultImage = `${siteOrigin}/og-image.png`;
+const runDate = new Date().toISOString().slice(0, 10);
 
 function walk(directory) {
   return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -41,6 +42,15 @@ function gitDate(relativePath, first = false) {
     .split(/\r?\n/)
     .filter(Boolean);
   return first ? lines.at(-1) : lines[0];
+}
+
+function modifiedDate(relativePath) {
+  const status = execFileSync(
+    "git",
+    ["-c", "core.excludesFile=.git/info/exclude", "status", "--porcelain", "--", relativePath],
+    { cwd: root, encoding: "utf8" },
+  ).trim();
+  return status ? runDate : gitDate(relativePath);
 }
 
 function extract(content, pattern, label, file) {
@@ -138,11 +148,12 @@ function enrichContentSchema(content, canonical, published, modified, title, des
   );
 }
 
-function enhancePage(file) {
+function enhancePage(file, forcedModified) {
   const rel = relative(root, file).split(sep).join("/");
   const route = routeFor(file);
   const canonical = `${siteOrigin}${route}`;
-  let content = readFileSync(file, "utf8");
+  const originalContent = readFileSync(file, "utf8");
+  let content = originalContent;
   const title = extract(content, /<title>([\s\S]*?)<\/title>/, "title", rel);
   const description = extract(
     content,
@@ -161,7 +172,7 @@ function enhancePage(file) {
   }
 
   const published = gitDate(rel, true);
-  const modified = gitDate(rel);
+  const modified = forcedModified ?? modifiedDate(rel);
   if (!published || !modified) throw new Error(`${rel}: no Git date available`);
 
   if (!apply) return { rel, canonical, published, modified, content };
@@ -284,6 +295,9 @@ function enhancePage(file) {
     content = content.replace("</head>", `${jsonScript(webpage, "webpage")}\n</head>`);
   }
 
+  if (content !== originalContent && modified !== runDate) {
+    return enhancePage(file, runDate);
+  }
   if (apply) writeFileSync(file, content, "utf8");
   return { rel, canonical, published, modified, content };
 }
@@ -398,7 +412,7 @@ function validate(pages) {
   console.log(`SEO validation passed: ${pages.length} pages, ${sitemapUrls.size} sitemap URLs.`);
 }
 
-const pages = walk(root).map(enhancePage);
+const pages = walk(root).map((file) => enhancePage(file));
 if (apply) {
   const sitemapPath = join(root, "sitemap.xml");
   let sitemap = readFileSync(sitemapPath, "utf8");
