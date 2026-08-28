@@ -326,6 +326,7 @@ tbody tr:hover td { background: var(--card); }
   font-size: 0.72rem;
   letter-spacing: 0.08em;
 }
+.ad-slot:empty { display: none; }
 
 /*---*\ #RELATED \*---*/
 .related { margin: 44px 0 0; }

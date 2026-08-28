@@ -7,6 +7,9 @@ const apply = process.argv.includes("--apply");
 const siteOrigin = "https://lambdaarchive.com";
 const siteName = "Lambda Archive";
 const defaultImage = `${siteOrigin}/og-image.png`;
+const adsensePublisherId = "ca-pub-2199446872925892";
+const adsenseScript = `  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsensePublisherId}"
+     crossorigin="anonymous"></script>`;
 const runDate = new Date().toISOString().slice(0, 10);
 
 function walk(directory) {
@@ -44,13 +47,39 @@ function gitDate(relativePath, first = false) {
   return first ? lines.at(-1) : lines[0];
 }
 
+function contentForModifiedDate(content) {
+  return content
+    .replace(
+      /\n  <script async src="https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-\d+"\s+crossorigin="anonymous"><\/script>/g,
+      "",
+    )
+    .replace(/<div class="ad-slot">[\s\S]*?<\/div>/g, '<div class="ad-slot"></div>')
+    .replace(/article:modified_time" content="[^"]+"/g, 'article:modified_time" content="DATE"')
+    .replace(/"dateModified": "[^"]+"/g, '"dateModified": "DATE"');
+}
+
 function modifiedDate(relativePath) {
   const status = execFileSync(
     "git",
     ["-c", "core.excludesFile=.git/info/exclude", "status", "--porcelain", "--", relativePath],
     { cwd: root, encoding: "utf8" },
   ).trim();
-  return status ? runDate : gitDate(relativePath);
+  if (!status) return gitDate(relativePath);
+  if (relativePath.endsWith(".html")) {
+    try {
+      const committed = execFileSync("git", ["show", `HEAD:${relativePath}`], {
+        cwd: root,
+        encoding: "utf8",
+      });
+      const working = readFileSync(join(root, relativePath), "utf8");
+      if (contentForModifiedDate(committed) === contentForModifiedDate(working)) {
+        return gitDate(relativePath);
+      }
+    } catch {
+      // Treat untracked or otherwise unreadable pages as newly modified.
+    }
+  }
+  return runDate;
 }
 
 function extract(content, pattern, label, file) {
@@ -183,6 +212,29 @@ function enhancePage(file, forcedModified) {
   );
   content = content.replaceAll('rel="nofollow noopener"', 'rel="noopener noreferrer"');
 
+  const hasArticle = /"@type"\s*:\s*"(?:Article|HowTo)"/.test(content);
+  const shouldLoadAdsense = route === "/" || (hasArticle && !route.startsWith("/voices/"));
+  if (shouldLoadAdsense) {
+    if (!content.includes("pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")) {
+      content = content.replace(
+        '  <link rel="stylesheet" href="/css/base.css">',
+        `  <link rel="stylesheet" href="/css/base.css">\n${adsenseScript}`,
+      );
+    }
+  } else {
+    content = content.replace(
+      /\n  <script async src="https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-\d+"\s+crossorigin="anonymous"><\/script>/g,
+      "",
+    );
+  }
+
+  if (content.includes('class="ad-slot"')) {
+    content = content.replace(
+      /<div class="ad-slot">AD SLOT[\s\S]*?<\/div>/g,
+      '<div class="ad-slot"></div>',
+    );
+  }
+
   if (!content.includes('property="og:image"')) {
     content = content.replace(
       /  <meta name="twitter:card"/,
@@ -196,7 +248,6 @@ function enhancePage(file, forcedModified) {
     );
   }
 
-  const hasArticle = /"@type"\s*:\s*"(?:Article|HowTo)"/.test(content);
   if (hasArticle) {
     content = content
       .replace(
@@ -295,7 +346,11 @@ function enhancePage(file, forcedModified) {
     content = content.replace("</head>", `${jsonScript(webpage, "webpage")}\n</head>`);
   }
 
-  if (content !== originalContent && modified !== runDate) {
+  if (
+    content !== originalContent &&
+    modified !== runDate &&
+    contentForModifiedDate(content) !== contentForModifiedDate(originalContent)
+  ) {
     return enhancePage(file, runDate);
   }
   if (apply) writeFileSync(file, content, "utf8");
@@ -318,6 +373,15 @@ function validate(pages) {
       rel,
     );
     const h1Count = (content.match(/<h1(?:\s|>)/g) || []).length;
+    const hasArticle = /"@type"\s*:\s*"(?:Article|HowTo)"/.test(content);
+    const shouldLoadAdsense = canonical === `${siteOrigin}/` ||
+      (hasArticle && !canonical.startsWith(`${siteOrigin}/voices/`));
+    const loadsAdsense = content.includes(
+      "pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2199446872925892",
+    );
+    if (loadsAdsense !== shouldLoadAdsense) {
+      errors.push(`${rel}: AdSense script placement does not match the approved page policy`);
+    }
     if (h1Count !== 1) errors.push(`${rel}: expected one H1, found ${h1Count}`);
     if (!content.includes("max-image-preview:large, max-snippet:-1, max-video-preview:-1")) {
       errors.push(`${rel}: incomplete robots preview directives`);
@@ -394,6 +458,10 @@ function validate(pages) {
   const robots = readFileSync(join(root, "robots.txt"), "utf8");
   if (!robots.includes(`Sitemap: ${siteOrigin}/sitemap.xml`)) {
     errors.push("robots.txt: missing absolute sitemap declaration");
+  }
+  const adsTxt = readFileSync(join(root, "ads.txt"), "utf8").trim();
+  if (adsTxt !== "google.com, pub-2199446872925892, DIRECT, f08c47fec0942fa0") {
+    errors.push("ads.txt: missing or incorrect Google AdSense publisher declaration");
   }
   const llms = readFileSync(join(root, "llms.txt"), "utf8");
   if (!llms.includes("# Lambda Archive") || !llms.includes(`${siteOrigin}/about/`)) {
