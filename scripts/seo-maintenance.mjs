@@ -10,6 +10,30 @@ const defaultImage = `${siteOrigin}/og-image.png`;
 const adsensePublisherId = "ca-pub-2199446872925892";
 const adsenseScript = `  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsensePublisherId}"
      crossorigin="anonymous"></script>`;
+const analyticsMeasurementId = "G-7TL0WTRP66";
+const analyticsTag = `  <!-- Google tag (gtag.js) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500,
+      'region': [
+        'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES', 'FI', 'FR',
+        'GR', 'HU', 'IE', 'IS', 'IT', 'LI', 'LT', 'LU', 'LV', 'MT', 'NL', 'NO',
+        'PL', 'PT', 'RO', 'SE', 'SI', 'SK', 'GB', 'CH'
+      ]
+    });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=${analyticsMeasurementId}"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', '${analyticsMeasurementId}');
+  </script>
+  <!-- End Google tag -->`;
 const runDate = new Date().toISOString().slice(0, 10);
 
 function walk(directory) {
@@ -49,6 +73,7 @@ function gitDate(relativePath, first = false) {
 
 function contentForModifiedDate(content) {
   return content
+    .replace(/\n  <!-- Google tag \(gtag\.js\) -->[\s\S]*?<!-- End Google tag -->/g, "")
     .replace(
       /\n  <script async src="https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-\d+"\s+crossorigin="anonymous"><\/script>/g,
       "",
@@ -56,6 +81,12 @@ function contentForModifiedDate(content) {
     .replace(/<div class="ad-slot">[\s\S]*?<\/div>/g, '<div class="ad-slot"></div>')
     .replace(/article:modified_time" content="[^"]+"/g, 'article:modified_time" content="DATE"')
     .replace(/"dateModified": "[^"]+"/g, '"dateModified": "DATE"');
+}
+
+function embeddedModifiedDate(content) {
+  return content.match(/article:modified_time" content="([^"]+)"/)?.[1] ??
+    content.match(/data-seo-entity="webpage"[\s\S]*?"dateModified":\s*"([^"]+)"/)?.[1] ??
+    content.match(/"dateModified":\s*"([^"]+)"/)?.[1];
 }
 
 function modifiedDate(relativePath) {
@@ -73,7 +104,7 @@ function modifiedDate(relativePath) {
       });
       const working = readFileSync(join(root, relativePath), "utf8");
       if (contentForModifiedDate(committed) === contentForModifiedDate(working)) {
-        return gitDate(relativePath);
+        return embeddedModifiedDate(committed) ?? gitDate(relativePath);
       }
     } catch {
       // Treat untracked or otherwise unreadable pages as newly modified.
@@ -211,6 +242,18 @@ function enhancePage(file, forcedModified) {
     '<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">',
   );
   content = content.replaceAll('rel="nofollow noopener"', 'rel="noopener noreferrer"');
+
+  if (content.includes("<!-- Google tag (gtag.js) -->")) {
+    content = content.replace(
+      /  <!-- Google tag \(gtag\.js\) -->[\s\S]*?<!-- End Google tag -->/,
+      analyticsTag,
+    );
+  } else {
+    content = content.replace(
+      '  <link rel="stylesheet" href="/css/base.css">',
+      `  <link rel="stylesheet" href="/css/base.css">\n${analyticsTag}`,
+    );
+  }
 
   const hasArticle = /"@type"\s*:\s*"(?:Article|HowTo)"/.test(content);
   const shouldLoadAdsense = route === "/" || (hasArticle && !route.startsWith("/voices/"));
@@ -373,6 +416,19 @@ function validate(pages) {
       rel,
     );
     const h1Count = (content.match(/<h1(?:\s|>)/g) || []).length;
+    if (!content.includes(`googletagmanager.com/gtag/js?id=${analyticsMeasurementId}`)) {
+      errors.push(`${rel}: missing Google Analytics tag`);
+    }
+    for (const consentType of [
+      "ad_storage",
+      "ad_user_data",
+      "ad_personalization",
+      "analytics_storage",
+    ]) {
+      if (!content.includes(`'${consentType}': 'denied'`)) {
+        errors.push(`${rel}: missing Consent Mode default for ${consentType}`);
+      }
+    }
     const hasArticle = /"@type"\s*:\s*"(?:Article|HowTo)"/.test(content);
     const shouldLoadAdsense = canonical === `${siteOrigin}/` ||
       (hasArticle && !canonical.startsWith(`${siteOrigin}/voices/`));
