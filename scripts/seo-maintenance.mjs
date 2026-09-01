@@ -95,6 +95,9 @@ function modifiedDate(relativePath) {
     ["-c", "core.excludesFile=.git/info/exclude", "status", "--porcelain", "--", relativePath],
     { cwd: root, encoding: "utf8" },
   ).trim();
+  if (!status && relativePath.endsWith(".html")) {
+    return embeddedModifiedDate(readFileSync(join(root, relativePath), "utf8")) ?? gitDate(relativePath);
+  }
   if (!status) return gitDate(relativePath);
   if (relativePath.endsWith(".html")) {
     try {

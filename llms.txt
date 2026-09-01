@@ -38,7 +38,7 @@ Content policy: Cite the page URL when using material from this archive. Lambda 
 
 - [Half-Life platforms](https://lambdaarchive.com/platforms/): Current platform availability and practical tradeoffs.
 - [Half-Life on Chromebook](https://lambdaarchive.com/platforms/half-life-on-chromebook/): Current options after the end of Steam for ChromeOS.
-- [Half-Life on PS2](https://lambdaarchive.com/platforms/half-life-ps2/): Port differences, Decay, upgraded models, the hidden alien mission, and why Half-Life 2 was never released for PS2.
+- [Was Half-Life 2 on PS2?](https://lambdaarchive.com/platforms/half-life-ps2/): No. The PS2 game was Half-Life 1; this page covers the physical disc, Decay co-op, upgraded models, the hidden alien mission, and every PC difference.
 - [Valve games on Nintendo Switch](https://lambdaarchive.com/platforms/valve-games-on-switch/): The complete official list for 2026 and why Half-Life is absent.
 - [Versions and editions](https://lambdaarchive.com/versions/): Comparison index for current, legacy, and retail releases.
 - [Game of the Year Edition](https://lambdaarchive.com/versions/goty-edition-differences/): Packaging, included content, and differences from the base game.
